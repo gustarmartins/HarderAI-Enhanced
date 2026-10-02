@@ -1,0 +1,189 @@
+{
+  "sources": {
+    "module/header.S": "fa7c821604026c28fae6273b90b2a5ce0ccfeb2437de5c1ee20bf26bb92420d5",
+    "module/observer.c": "12cd003b22a5fc3147bc9271b52b0ea30c94ae54fa1247913ba3b55733ef2bc0",
+    "earned_boost_v305.S": "dbd08d0abe98ae82abe55483b5eab658617c57fe1b30a5bb757347caaf53ae7c",
+    "drift_pace_floor_v305.c": "cd79d3b7dfcdea9ffdbb1773f11d2c827bf281e1547a401a429859324568fa69",
+    "drift_pace_floor_v305.S": "6f647762d7f95973562460378c848a8958c05f95326372b57d6b6b7b954d8e34",
+    "ratio_ceiling_v305.S": "369b0db1be37ce45436ea26d476be77af6f414242e7f92de4eba88464b82d3b6",
+    "drift_completion_grace_v305.c": "d9404137af4f6ab96f5b9dddb67b50bd787600f11a9cb7ed23dadc71bc2e1a2e",
+    "drift_completion_grace_v305.S": "c28f93aadd3959e856414c9da57ba561dc8a31ae505d9a3f4488ccad6757e2b6",
+    "snaking_v305.c": "fef31e1cfd9e95e2368e7c613ba9e540708119946b8aa5b25c39db7dd3c3f5b2",
+    "snaking_v305.S": "93b11b48c12ce405db276115a7d2142bd0dcb7e036a3c4ab84dd145395c64d9e",
+    "com_lifetime_v305.c": "eb6954a0a86e0ab8caf9a35a5b83f2df1697aedb872effdede3c3cd8d6a861a8",
+    "com_lifetime_v305.S": "4bb23521a42fc3b3f36df1f11f31c52a4ed76bee4b1167c754b5540af3303ac1",
+    "register_context.inc": "f84d8b8fee34f9dc1fe88c73e73f349d86d8e960a890249881c353fdc6166d0c",
+    "identity_local_trampolines_v305.S": "bfc1c541de8cb6a8efba77ce0e49aa969ce68ab886efc5c9b25a9dafed5d3ebf",
+    "module/link.ld": "c3860609da0c064b54f241d1a87f85d71445359f9ebbeda2ccb86e5fec8595a4"
+  },
+  "hook_plan": [
+    {
+      "main_offset": 1579168,
+      "symbol": "lab_earned_star_ratio_hook",
+      "original_hex": "4020211e",
+      "branch_hex": "e51d6314"
+    },
+    {
+      "main_offset": 1582212,
+      "symbol": "lab_earned_boost_cap_hook",
+      "original_hex": "2008201e",
+      "branch_hex": "001b6314"
+    },
+    {
+      "main_offset": 1579264,
+      "symbol": "lab_drift_pace_hook",
+      "original_hex": "69d20791",
+      "branch_hex": "571e6314"
+    },
+    {
+      "main_offset": 448096,
+      "symbol": "lab_cpu_ratio_fallback_hook",
+      "original_hex": "02102f1e",
+      "branch_hex": "526f6714"
+    },
+    {
+      "main_offset": 448220,
+      "symbol": "lab_cpu_ratio_formation_hook",
+      "original_hex": "02102f1e",
+      "branch_hex": "356f6714"
+    },
+    {
+      "main_offset": 381920,
+      "symbol": "lab_drift_completion_hook",
+      "original_hex": "77000037",
+      "branch_hex": "46b26714"
+    },
+    {
+      "main_offset": 376760,
+      "symbol": "lab_snaking_hook",
+      "original_hex": "fd7b41a9",
+      "branch_hex": "7bbd6714"
+    },
+    {
+      "main_offset": 8325472,
+      "symbol": "lab_com_lifetime_publish_hook",
+      "original_hex": "28410091",
+      "branch_hex": "2d6c4914"
+    },
+    {
+      "main_offset": 6359664,
+      "symbol": "lab_com_lifetime_retire_hook",
+      "original_hex": "880240f9",
+      "branch_hex": "44ec5014"
+    },
+    {
+      "main_offset": 1294944,
+      "symbol": "lab_com_lifetime_begin_hook",
+      "original_hex": "ff0303d1",
+      "branch_hex": "a33e6414"
+    },
+    {
+      "main_offset": 1296056,
+      "symbol": "lab_com_lifetime_group_hook",
+      "original_hex": "745a00f9",
+      "branch_hex": "e83d6414"
+    },
+    {
+      "main_offset": 1304128,
+      "symbol": "lab_com_lifetime_destroy_hook",
+      "original_hex": "f44fbea9",
+      "branch_hex": "61366414"
+    },
+    {
+      "main_offset": 1304296,
+      "symbol": "lab_com_lifetime_delete_hook",
+      "original_hex": "f44fbea9",
+      "branch_hex": "92366414"
+    }
+  ],
+  "required_main_to_module_offset": 27561984,
+  "nso_sha256": "7ccd2274c3ef010c0f1fcf24990c04f41ddeb72f48cf59dc1829296f5f079b6e",
+  "patch_sha256": "297bd5144361a3f6641d31fc599fcdcb87d2590efc627c3dd537ec155263dc33",
+  "version": "0.1.0",
+  "game_version": "3.0.5",
+  "title_id": "0100152000022000",
+  "main_build_id": "FE941ED5BA14BE5D505698DA1BBF4FE7",
+  "compiler_args": [
+    "-DLAB_EARNED_BOOST_SCOPE=0",
+    "-DLAB_DRIFT_PACE_FLOOR_BITS=1063675494",
+    "-DLAB_DRIFT_PACE_STATES=48",
+    "-DLAB_CPU_RATIO_CEILING_BITS=2139095040",
+    "-DLAB_MAIN_TO_MODULE=27561984"
+  ],
+  "source_order": [
+    "module/header.S",
+    "module/observer.c",
+    "earned_boost_v305.S",
+    "drift_pace_floor_v305.c",
+    "drift_pace_floor_v305.S",
+    "ratio_ceiling_v305.S",
+    "drift_completion_grace_v305.c",
+    "drift_completion_grace_v305.S",
+    "snaking_v305.c",
+    "snaking_v305.S",
+    "com_lifetime_v305.c",
+    "com_lifetime_v305.S"
+  ],
+  "returns": [
+    [
+      "lab_earned_star_ratio_return",
+      1579176
+    ],
+    [
+      "lab_earned_boost_cap_return",
+      1582216
+    ],
+    [
+      "lab_drift_pace_return",
+      1579268
+    ],
+    [
+      "lab_cpu_ratio_fallback_return",
+      448100
+    ],
+    [
+      "lab_cpu_ratio_formation_return",
+      448224
+    ],
+    [
+      "lab_drift_completion_return",
+      381924
+    ],
+    [
+      "lab_snaking_return",
+      376764
+    ],
+    [
+      "lab_com_lifetime_publish_return",
+      8325476
+    ],
+    [
+      "lab_com_lifetime_retire_return",
+      6359668
+    ],
+    [
+      "lab_com_lifetime_begin_return",
+      1294948
+    ],
+    [
+      "lab_com_lifetime_group_return",
+      1296060
+    ],
+    [
+      "lab_com_lifetime_destroy_return",
+      1304132
+    ],
+    [
+      "lab_com_lifetime_delete_return",
+      1304300
+    ],
+    [
+      "lab_drift_completion_hold_return",
+      382012
+    ],
+    [
+      "lab_drift_completion_release_return",
+      381932
+    ]
+  ]
+}

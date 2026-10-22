@@ -16,7 +16,7 @@ def package():
             raise ValueError('Release file changed: '+name)
     bid = manifest['main_build_id']+'.ips'
     files['patch-source/'+bid] = files.pop(bid)
-    for name in ['README.md', 'TECHNICAL.md', 'PARAMETERS.md', 'VALIDATION.md', 'GAMEBANANA.md', 'LICENSE', 'release-manifest.json']:
+    for name in ['README.md', 'TECHNICAL.md', 'PARAMETERS.md', 'VALIDATION.md', 'LICENSE', 'release-manifest.json']:
         files[name] = (ROOT/name).read_bytes()
     dest = ROOT/'dist';dest.mkdir(exist_ok=True)
     output = dest/'HarderAI-Enhanced-v0.1.0-MK8DX-3.0.5.zip'

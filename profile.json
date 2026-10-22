@@ -1,130 +1,277 @@
 {
-  "sources": {
-    "module/header.S": "fa7c821604026c28fae6273b90b2a5ce0ccfeb2437de5c1ee20bf26bb92420d5",
-    "module/observer.c": "12cd003b22a5fc3147bc9271b52b0ea30c94ae54fa1247913ba3b55733ef2bc0",
-    "earned_boost_v305.S": "dbd08d0abe98ae82abe55483b5eab658617c57fe1b30a5bb757347caaf53ae7c",
-    "drift_pace_floor_v305.c": "cd79d3b7dfcdea9ffdbb1773f11d2c827bf281e1547a401a429859324568fa69",
-    "drift_pace_floor_v305.S": "6f647762d7f95973562460378c848a8958c05f95326372b57d6b6b7b954d8e34",
-    "ratio_ceiling_v305.S": "369b0db1be37ce45436ea26d476be77af6f414242e7f92de4eba88464b82d3b6",
-    "drift_completion_grace_v305.c": "d9404137af4f6ab96f5b9dddb67b50bd787600f11a9cb7ed23dadc71bc2e1a2e",
-    "drift_completion_grace_v305.S": "c28f93aadd3959e856414c9da57ba561dc8a31ae505d9a3f4488ccad6757e2b6",
-    "snaking_v305.c": "fef31e1cfd9e95e2368e7c613ba9e540708119946b8aa5b25c39db7dd3c3f5b2",
-    "snaking_v305.S": "93b11b48c12ce405db276115a7d2142bd0dcb7e036a3c4ab84dd145395c64d9e",
-    "com_lifetime_v305.c": "eb6954a0a86e0ab8caf9a35a5b83f2df1697aedb872effdede3c3cd8d6a861a8",
-    "com_lifetime_v305.S": "4bb23521a42fc3b3f36df1f11f31c52a4ed76bee4b1167c754b5540af3303ac1",
-    "register_context.inc": "f84d8b8fee34f9dc1fe88c73e73f349d86d8e960a890249881c353fdc6166d0c",
-    "identity_local_trampolines_v305.S": "bfc1c541de8cb6a8efba77ce0e49aa969ce68ab886efc5c9b25a9dafed5d3ebf",
-    "module/link.ld": "c3860609da0c064b54f241d1a87f85d71445359f9ebbeda2ccb86e5fec8595a4"
-  },
-  "hook_plan": [
-    {
-      "main_offset": 1579168,
-      "symbol": "lab_earned_star_ratio_hook",
-      "original_hex": "4020211e",
-      "branch_hex": "e51d6314"
-    },
-    {
-      "main_offset": 1582212,
-      "symbol": "lab_earned_boost_cap_hook",
-      "original_hex": "2008201e",
-      "branch_hex": "001b6314"
-    },
-    {
-      "main_offset": 1579264,
-      "symbol": "lab_drift_pace_hook",
-      "original_hex": "69d20791",
-      "branch_hex": "571e6314"
-    },
-    {
-      "main_offset": 448096,
-      "symbol": "lab_cpu_ratio_fallback_hook",
-      "original_hex": "02102f1e",
-      "branch_hex": "526f6714"
-    },
-    {
-      "main_offset": 448220,
-      "symbol": "lab_cpu_ratio_formation_hook",
-      "original_hex": "02102f1e",
-      "branch_hex": "356f6714"
-    },
-    {
-      "main_offset": 381920,
-      "symbol": "lab_drift_completion_hook",
-      "original_hex": "77000037",
-      "branch_hex": "46b26714"
-    },
-    {
-      "main_offset": 376760,
-      "symbol": "lab_snaking_hook",
-      "original_hex": "fd7b41a9",
-      "branch_hex": "7bbd6714"
-    },
-    {
-      "main_offset": 8325472,
-      "symbol": "lab_com_lifetime_publish_hook",
-      "original_hex": "28410091",
-      "branch_hex": "2d6c4914"
-    },
-    {
-      "main_offset": 6359664,
-      "symbol": "lab_com_lifetime_retire_hook",
-      "original_hex": "880240f9",
-      "branch_hex": "44ec5014"
-    },
-    {
-      "main_offset": 1294944,
-      "symbol": "lab_com_lifetime_begin_hook",
-      "original_hex": "ff0303d1",
-      "branch_hex": "a33e6414"
-    },
-    {
-      "main_offset": 1296056,
-      "symbol": "lab_com_lifetime_group_hook",
-      "original_hex": "745a00f9",
-      "branch_hex": "e83d6414"
-    },
-    {
-      "main_offset": 1304128,
-      "symbol": "lab_com_lifetime_destroy_hook",
-      "original_hex": "f44fbea9",
-      "branch_hex": "61366414"
-    },
-    {
-      "main_offset": 1304296,
-      "symbol": "lab_com_lifetime_delete_hook",
-      "original_hex": "f44fbea9",
-      "branch_hex": "92366414"
-    }
-  ],
-  "required_main_to_module_offset": 27561984,
-  "nso_sha256": "7ccd2274c3ef010c0f1fcf24990c04f41ddeb72f48cf59dc1829296f5f079b6e",
-  "patch_sha256": "297bd5144361a3f6641d31fc599fcdcb87d2590efc627c3dd537ec155263dc33",
-  "version": "0.1.0",
+  "schema": 1,
   "game_version": "3.0.5",
-  "title_id": "0100152000022000",
   "main_build_id": "FE941ED5BA14BE5D505698DA1BBF4FE7",
+  "source_order": [
+    "unit-000/header.S",
+    "unit-001/observer.c",
+    "unit-002/drift_entry_alignment_v305.c",
+    "unit-003/drift_entry_alignment_v305.S",
+    "unit-004/golden_finish_urgency_v305.c",
+    "unit-005/director_runtime_v305.c",
+    "unit-006/director_runtime_v305.S",
+    "unit-007/director_core_v305.c",
+    "unit-008/native_turbo_commit_v305.c",
+    "unit-009/native_turbo_commit_v305.S",
+    "unit-010/flow_lane_observer_v305.c",
+    "unit-011/flow_lane_observer_v305.S",
+    "unit-012/first_place_defense_v305.c",
+    "unit-013/first_place_defense_v305.S",
+    "unit-014/horn_blue_defense_v305.c",
+    "unit-015/horn_blue_defense_v305.S",
+    "unit-016/bounded_drift_heading_v305.c",
+    "unit-017/bounded_drift_heading_v305.S",
+    "unit-018/corner_recheck_v305.c",
+    "unit-019/corner_recheck_v305.S",
+    "unit-020/cpu_paired_route_view_v305.c",
+    "unit-021/cpu_paired_route_view_v305.S",
+    "unit-022/earned_boost_v305.S",
+    "unit-023/held_blue_charge_v305.S",
+    "unit-024/drift_pace_floor_v305.c",
+    "unit-025/drift_pace_floor_v305.S",
+    "unit-026/ratio_ceiling_v305.S",
+    "unit-027/drift_completion_grace_v305.c",
+    "unit-028/drift_completion_grace_v305.S",
+    "unit-029/snaking_v305.c",
+    "unit-030/snaking_v305.S",
+    "unit-031/com_lifetime_v305.c",
+    "unit-032/com_lifetime_v305.S",
+    "unit-033/native_driving_trace_v305.c",
+    "unit-034/native_driving_trace_v305.S",
+    "unit-035/early_drift_pid_v305.c",
+    "unit-036/early_drift_pid_v305.S",
+    "unit-037/racer_follow_guard_v305.c",
+    "unit-038/racer_follow_guard_v305.S",
+    "unit-039/racer_follow_returns_v305.S",
+    "unit-040/cpu_inward_charge_v305.S",
+    "unit-041/mushroom_wait_v305.S",
+    "unit-042/star_shortcut_v305.c",
+    "unit-043/star_shortcut_v305.S",
+    "unit-044/star_defense_v305.c",
+    "unit-045/star_defense_v305.S",
+    "unit-046/star_item_hazard_v305.c",
+    "unit-047/golden_active_repeat_v305.c",
+    "unit-048/golden_active_repeat_v305.S",
+    "unit-049/item_rank_fallback_v305.c",
+    "unit-050/golden_boundary_adapter_v305.c",
+    "unit-051/golden_boundary_adapter_v305.S",
+    "unit-052/golden_promotion_policy_v305.c",
+    "unit-053/golden_promotion_publication_v305.c",
+    "unit-054/queue_thread.c",
+    "unit-055/item_task_collect.c",
+    "unit-056/golden_native_readiness_generated_v305.c",
+    "unit-057/director_pressure_native_v305.c",
+    "unit-058/director_pressure_pace_v305.c",
+    "unit-059/star_finish_urgency_generated_v305.c",
+    "unit-060/native_ground_target_observer_v305.c",
+    "unit-061/native_ground_target_observer_v305.S",
+    "unit-062/native_ground_target_scope_v305.c",
+    "unit-063/flow_lane_native_binding.c",
+    "unit-064/flow_lane_base_bias_v305.c",
+    "unit-065/flow_lane_native_binding_mesh.c",
+    "unit-066/flow_lane_native_binding_contact.c",
+    "unit-067/flow_lane_native_edge_certificate_v305.c",
+    "unit-068/flow_lane_native_point_contact_v305.c",
+    "unit-069/flow_lane_native_facet_route_v305.c",
+    "unit-070/flow_lane_native_binding_geometry.c",
+    "unit-071/flow_lane_native_route_obstacles_v305.c",
+    "unit-072/flow_lane_native_geometry_identity_v305.c",
+    "unit-073/flow_lane_native_lifetime_v305.c",
+    "unit-074/flow_lane_native_flow_query_v305.c",
+    "unit-075/flow_lane_native_cost_v305.c",
+    "unit-076/flow_lane_native_actuator_v305.c",
+    "unit-077/flow_lane_scope_v305.c",
+    "unit-078/flow_lane_decode_cache_v305.c",
+    "unit-079/flow_lane_prepared_geometry_v305.c",
+    "unit-080/flow_course_publication_v305.c",
+    "unit-081/flow_lane_runtime_v305.c",
+    "unit-082/flow_lane_freestanding_v305.c",
+    "unit-083/flow_course_publication_v305.S",
+    "unit-084/golden_active_narrow_v305.S",
+    "unit-085/lightning_bagging_v305.c",
+    "unit-086/lightning_bagging_v305.S",
+    "unit-087/director_ladder_native_v305.c",
+    "unit-088/director_promotion_exchange_v305.c",
+    "unit-089/director_promotion_runtime_v305.c",
+    "unit-090/director_promotion_boundary_v305.c",
+    "unit-091/director_promotion_runtime_v305.S",
+    "unit-092/shared_slot_scope_v305.c",
+    "unit-093/shared_slot_jobs_v305.S",
+    "unit-094/shared_slot_runtime_v305.c",
+    "unit-095/shared_slot_boundary_v305.c"
+  ],
   "compiler_args": [
+    "-DLAB_DRIFT_HEADING_SNAKING=1",
+    "-DLAB_DRIFT_HEADING_OBSERVE=1",
+    "-DLAB_EARNED_STAR_EXTRA_BITS=1065562931",
+    "-DLAB_HELD_BLUE_SCALE_BITS=1060320051",
+    "-DLAB_STAR_ITEM_HAZARD",
     "-DLAB_EARNED_BOOST_SCOPE=0",
     "-DLAB_DRIFT_PACE_FLOOR_BITS=1063675494",
     "-DLAB_DRIFT_PACE_STATES=48",
     "-DLAB_CPU_RATIO_CEILING_BITS=2139095040",
-    "-DLAB_MAIN_TO_MODULE=27561984"
+    "-DLAB_MAIN_TO_MODULE=27561984",
+    "-DLAB_GOLDEN_PROMOTION_ENABLED=1",
+    "-DLAB_GROUND_TARGET_PROVENANCE",
+    "-DLAB_SNAKING_HOP_HEADING=1",
+    "-DLAB_RACE_SYSTEM_TABLE=0x125a060",
+    "-DLAB_FRAME_TABLE_A=0x12c34f0",
+    "-DLAB_FRAME_TABLE_B=0x12ec408",
+    "-DLAB_NATIVE_TRY_MUTEX=0xb4ec78",
+    "-DLAB_NATIVE_UNLOCK_MUTEX=0xb4e328"
   ],
-  "source_order": [
-    "module/header.S",
-    "module/observer.c",
-    "earned_boost_v305.S",
-    "drift_pace_floor_v305.c",
-    "drift_pace_floor_v305.S",
-    "ratio_ceiling_v305.S",
-    "drift_completion_grace_v305.c",
-    "drift_completion_grace_v305.S",
-    "snaking_v305.c",
-    "snaking_v305.S",
-    "com_lifetime_v305.c",
-    "com_lifetime_v305.S"
-  ],
+  "source_compiler_args": {
+    "unit-058/director_pressure_pace_v305.c": [
+      "-ffp-contract=off"
+    ],
+    "unit-063/flow_lane_native_binding.c": [
+      "-ffp-contract=off",
+      "-fno-math-errno"
+    ],
+    "unit-064/flow_lane_base_bias_v305.c": [
+      "-ffp-contract=off",
+      "-fno-math-errno"
+    ],
+    "unit-065/flow_lane_native_binding_mesh.c": [
+      "-ffp-contract=off",
+      "-fno-math-errno"
+    ],
+    "unit-066/flow_lane_native_binding_contact.c": [
+      "-ffp-contract=off",
+      "-fno-math-errno"
+    ],
+    "unit-067/flow_lane_native_edge_certificate_v305.c": [
+      "-ffp-contract=off",
+      "-fno-math-errno"
+    ],
+    "unit-068/flow_lane_native_point_contact_v305.c": [
+      "-ffp-contract=off",
+      "-fno-math-errno"
+    ],
+    "unit-069/flow_lane_native_facet_route_v305.c": [
+      "-ffp-contract=off",
+      "-fno-math-errno"
+    ],
+    "unit-070/flow_lane_native_binding_geometry.c": [
+      "-ffp-contract=off",
+      "-fno-math-errno"
+    ],
+    "unit-071/flow_lane_native_route_obstacles_v305.c": [
+      "-ffp-contract=off",
+      "-fno-math-errno"
+    ],
+    "unit-072/flow_lane_native_geometry_identity_v305.c": [
+      "-ffp-contract=off",
+      "-fno-math-errno"
+    ],
+    "unit-073/flow_lane_native_lifetime_v305.c": [
+      "-ffp-contract=off",
+      "-fno-math-errno"
+    ],
+    "unit-074/flow_lane_native_flow_query_v305.c": [
+      "-ffp-contract=off",
+      "-fno-math-errno"
+    ],
+    "unit-075/flow_lane_native_cost_v305.c": [
+      "-ffp-contract=off",
+      "-fno-math-errno"
+    ],
+    "unit-076/flow_lane_native_actuator_v305.c": [
+      "-ffp-contract=off",
+      "-fno-math-errno"
+    ],
+    "unit-077/flow_lane_scope_v305.c": [
+      "-ffp-contract=off",
+      "-fno-math-errno"
+    ],
+    "unit-078/flow_lane_decode_cache_v305.c": [
+      "-ffp-contract=off",
+      "-fno-math-errno"
+    ],
+    "unit-079/flow_lane_prepared_geometry_v305.c": [
+      "-ffp-contract=off",
+      "-fno-math-errno"
+    ],
+    "unit-080/flow_course_publication_v305.c": [
+      "-ffp-contract=off",
+      "-fno-math-errno"
+    ],
+    "unit-081/flow_lane_runtime_v305.c": [
+      "-ffp-contract=off",
+      "-fno-math-errno"
+    ],
+    "unit-082/flow_lane_freestanding_v305.c": [
+      "-ffp-contract=off",
+      "-fno-math-errno"
+    ]
+  },
+  "linker_args": [],
+  "required_main_to_module_offset": 27561984,
   "returns": [
+    [
+      "lab_drift_entry_alignment_defer_return",
+      377932
+    ],
+    [
+      "lab_drift_entry_alignment_native_return",
+      379508
+    ],
+    [
+      "lab_drift_entry_alignment_upstream_return",
+      377932
+    ],
+    [
+      "lab_director_sum_return",
+      448192
+    ],
+    [
+      "lab_native_turbo_commit_return",
+      1547212
+    ],
+    [
+      "lab_flow_lane_target_return",
+      8119372
+    ],
+    [
+      "lab_flow_lane_contact_return",
+      1610012
+    ],
+    [
+      "lab_first_place_hold_return",
+      403180
+    ],
+    [
+      "lab_first_place_snipe_return",
+      403692
+    ],
+    [
+      "lab_first_place_timeout_return",
+      403196
+    ],
+    [
+      "lab_horn_blue_return",
+      401060
+    ],
+    [
+      "lab_horn_blue_consume",
+      401172
+    ],
+    [
+      "lab_bounded_drift_heading_return",
+      452976
+    ],
+    [
+      "lab_corner_recheck_return",
+      377884
+    ],
+    [
+      "lab_cpu_paired_view_initial_return",
+      459840
+    ],
+    [
+      "lab_cpu_paired_view_update_return",
+      460080
+    ],
     [
       "lab_earned_star_ratio_return",
       1579176
@@ -132,6 +279,10 @@
     [
       "lab_earned_boost_cap_return",
       1582216
+    ],
+    [
+      "lab_held_blue_charge_return",
+      1557588
     ],
     [
       "lab_drift_pace_return",
@@ -146,8 +297,24 @@
       448224
     ],
     [
+      "lab_drift_completion_hold_return",
+      382012
+    ],
+    [
       "lab_drift_completion_return",
       381924
+    ],
+    [
+      "lab_drift_completion_release_return",
+      381932
+    ],
+    [
+      "lab_drift_completion_end_return",
+      381948
+    ],
+    [
+      "lab_corner_arc_begin_return",
+      379536
     ],
     [
       "lab_snaking_return",
@@ -178,12 +345,1036 @@
       1304300
     ],
     [
-      "lab_drift_completion_hold_return",
+      "lab_native_driving_trace_return",
+      381936
+    ],
+    [
+      "lab_early_drift_pid_entry_return",
+      380608
+    ],
+    [
+      "lab_early_drift_pid_native_late",
+      380860
+    ],
+    [
+      "lab_early_drift_pid_finish_return",
+      381284
+    ],
+    [
+      "lab_early_drift_pid_early_finish",
       382012
     ],
     [
-      "lab_drift_completion_release_return",
-      381932
+      "lab_follow_native_update",
+      297292
+    ],
+    [
+      "lab_follow_native_writer",
+      358380
+    ],
+    [
+      "lab_follow_native_abort",
+      311464
+    ],
+    [
+      "lab_follow_native_after_target",
+      311420
+    ],
+    [
+      "lab_follow_native_after_secondary",
+      298228
+    ],
+    [
+      "lab_follow_native_after_update",
+      314928
+    ],
+    [
+      "lab_cpu_inward_charge_return",
+      1561504
+    ],
+    [
+      "lab_mushroom_wait_return",
+      401304
+    ],
+    [
+      "lab_star_shortcut_return",
+      8119752
+    ],
+    [
+      "lab_star_defense_return",
+      401444
+    ],
+    [
+      "lab_star_defense_use",
+      401968
+    ],
+    [
+      "lab_golden_route_blocked",
+      401964
+    ],
+    [
+      "lab_golden_route_return",
+      401816
+    ],
+    [
+      "lab_golden_ordinary_blocked",
+      401964
+    ],
+    [
+      "lab_golden_ordinary_return",
+      401928
+    ],
+    [
+      "lab_golden_delay_return",
+      401356
+    ],
+    [
+      "lab_golden_shortcut_retry_return",
+      401780
+    ],
+    [
+      "lab_golden_shortcut_ordinary_return",
+      401856
+    ],
+    [
+      "lab_golden_begin_return",
+      12844
+    ],
+    [
+      "lab_golden_commands_return",
+      13632
+    ],
+    [
+      "lab_golden_end_return",
+      13948
+    ],
+    [
+      "lab_golden_use_a_return",
+      268428
+    ],
+    [
+      "lab_golden_use_b_return",
+      269268
+    ],
+    [
+      "lab_golden_tick_return",
+      261588
+    ],
+    [
+      "lab_golden_expiry_taken_return",
+      261600
+    ],
+    [
+      "lab_golden_expiry_next_return",
+      261584
+    ],
+    [
+      "lab_golden_limit_taken_return",
+      261600
+    ],
+    [
+      "lab_golden_limit_next_return",
+      261560
+    ],
+    [
+      "lab_native_ground_target_return",
+      1609764
+    ],
+    [
+      "lab_flow_course_begin_return",
+      9006000
+    ],
+    [
+      "lab_flow_course_publish_return",
+      9006548
+    ],
+    [
+      "lab_flow_course_retire_return",
+      9006580
+    ],
+    [
+      "lab_flow_course_reload_return",
+      8165480
+    ],
+    [
+      "lab_flow_course_wrapper_delete_return",
+      9291496
+    ],
+    [
+      "lab_flow_course_factory_reset_return",
+      8159500
+    ],
+    [
+      "lab_flow_course_data_delete_return",
+      6323104
+    ],
+    [
+      "lab_flow_course_factory_release_return",
+      8159568
+    ],
+    [
+      "lab_golden_active_narrow_return",
+      401964
+    ],
+    [
+      "lab_lightning_picker_entry_return",
+      287492
+    ],
+    [
+      "lab_lightning_curve_return",
+      288580
+    ],
+    [
+      "lab_lightning_delay_return",
+      400912
+    ],
+    [
+      "lab_director_promotion_return",
+      315584
+    ],
+    [
+      "lab_shared_jobs_submit",
+      6483672
+    ],
+    [
+      "lab_shared_jobs_return",
+      1304012
     ]
+  ],
+  "hook_plan": [
+    {
+      "main_offset": 379504,
+      "symbol": "lab_drift_entry_alignment_hook",
+      "original_hex": "e0ceff54",
+      "branch_hex": "41b26714"
+    },
+    {
+      "main_offset": 1579168,
+      "symbol": "lab_earned_star_ratio_hook",
+      "original_hex": "4020211e",
+      "branch_hex": "4e526314"
+    },
+    {
+      "main_offset": 1582212,
+      "symbol": "lab_earned_boost_cap_hook",
+      "original_hex": "2008201e",
+      "branch_hex": "6c4f6314"
+    },
+    {
+      "main_offset": 1579264,
+      "symbol": "lab_drift_pace_hook",
+      "original_hex": "69d20791",
+      "branch_hex": "f0526314"
+    },
+    {
+      "main_offset": 448096,
+      "symbol": "lab_cpu_ratio_fallback_hook",
+      "original_hex": "02102f1e",
+      "branch_hex": "eba36714"
+    },
+    {
+      "main_offset": 448220,
+      "symbol": "lab_cpu_ratio_formation_hook",
+      "original_hex": "02102f1e",
+      "branch_hex": "cea36714"
+    },
+    {
+      "main_offset": 381920,
+      "symbol": "lab_drift_completion_hook",
+      "original_hex": "77000037",
+      "branch_hex": "44026814"
+    },
+    {
+      "main_offset": 381944,
+      "symbol": "lab_drift_completion_end_hook",
+      "original_hex": "7f060139",
+      "branch_hex": "bb026814"
+    },
+    {
+      "main_offset": 379532,
+      "symbol": "lab_corner_arc_begin_hook",
+      "original_hex": "7f4600b9",
+      "branch_hex": "68056814"
+    },
+    {
+      "main_offset": 1547208,
+      "symbol": "lab_native_turbo_commit_hook",
+      "original_hex": "e003152a",
+      "branch_hex": "8d556314"
+    },
+    {
+      "main_offset": 9005996,
+      "symbol": "lab_flow_course_begin_hook",
+      "original_hex": "ff8305d1",
+      "branch_hex": "80fb4714"
+    },
+    {
+      "main_offset": 9006540,
+      "symbol": "lab_flow_course_publish_hook",
+      "original_hex": "02000014",
+      "branch_hex": "52fb4714"
+    },
+    {
+      "main_offset": 9006576,
+      "symbol": "lab_flow_course_retire_hook",
+      "original_hex": "f30f1ef8",
+      "branch_hex": "a2fb4714"
+    },
+    {
+      "main_offset": 8165476,
+      "symbol": "lab_flow_course_reload_hook",
+      "original_hex": "ffc301d1",
+      "branch_hex": "5f314b14"
+    },
+    {
+      "main_offset": 9291492,
+      "symbol": "lab_flow_course_wrapper_delete_hook",
+      "original_hex": "f30f1ef8",
+      "branch_hex": "19e64614"
+    },
+    {
+      "main_offset": 8159496,
+      "symbol": "lab_flow_course_factory_reset_hook",
+      "original_hex": "f30f1ef8",
+      "branch_hex": "ea374b14"
+    },
+    {
+      "main_offset": 8166040,
+      "symbol": "lab_flow_course_data_delete_hook",
+      "original_hex": "42f8f817",
+      "branch_hex": "e0314b14"
+    },
+    {
+      "main_offset": 8159564,
+      "symbol": "lab_flow_course_factory_release_hook",
+      "original_hex": "f30f1ef8",
+      "branch_hex": "8c384b14"
+    },
+    {
+      "main_offset": 1609760,
+      "symbol": "lab_native_ground_target_hook",
+      "original_hex": "e89340b9",
+      "branch_hex": "52ec6314"
+    },
+    {
+      "main_offset": 448188,
+      "symbol": "lab_director_sum_hook",
+      "original_hex": "0028211e",
+      "branch_hex": "a07e6714"
+    },
+    {
+      "main_offset": 12840,
+      "symbol": "lab_golden_begin_hook",
+      "original_hex": "68c24539",
+      "branch_hex": "92ea6914"
+    },
+    {
+      "main_offset": 13628,
+      "symbol": "lab_golden_commands_hook",
+      "original_hex": "608240f9",
+      "branch_hex": "21ea6914"
+    },
+    {
+      "main_offset": 13944,
+      "symbol": "lab_golden_end_hook",
+      "original_hex": "fd7b49a9",
+      "branch_hex": "26ea6914"
+    },
+    {
+      "main_offset": 268424,
+      "symbol": "lab_golden_use_a_hook",
+      "original_hex": "090100b9",
+      "branch_hex": "f6f16814"
+    },
+    {
+      "main_offset": 269264,
+      "symbol": "lab_golden_use_b_hook",
+      "original_hex": "090100b9",
+      "branch_hex": "7af16814"
+    },
+    {
+      "main_offset": 261584,
+      "symbol": "lab_golden_tick_hook",
+      "original_hex": "fd7b42a9",
+      "branch_hex": "4ff96814"
+    },
+    {
+      "main_offset": 261580,
+      "symbol": "lab_golden_expiry_hook",
+      "original_hex": "aa000054",
+      "branch_hex": "a5f96814"
+    },
+    {
+      "main_offset": 261556,
+      "symbol": "lab_golden_limit_hook",
+      "original_hex": "6a010054",
+      "branch_hex": "01fa6814"
+    },
+    {
+      "main_offset": 376760,
+      "symbol": "lab_snaking_hook",
+      "original_hex": "fd7b41a9",
+      "branch_hex": "71656814"
+    },
+    {
+      "main_offset": 8325472,
+      "symbol": "lab_com_lifetime_publish_hook",
+      "original_hex": "28410091",
+      "branch_hex": "52144a14"
+    },
+    {
+      "main_offset": 6359664,
+      "symbol": "lab_com_lifetime_retire_hook",
+      "original_hex": "880240f9",
+      "branch_hex": "69945114"
+    },
+    {
+      "main_offset": 1294944,
+      "symbol": "lab_com_lifetime_begin_hook",
+      "original_hex": "ff0303d1",
+      "branch_hex": "c8e66414"
+    },
+    {
+      "main_offset": 1296056,
+      "symbol": "lab_com_lifetime_group_hook",
+      "original_hex": "745a00f9",
+      "branch_hex": "0de66414"
+    },
+    {
+      "main_offset": 1304128,
+      "symbol": "lab_com_lifetime_destroy_hook",
+      "original_hex": "f44fbea9",
+      "branch_hex": "86de6414"
+    },
+    {
+      "main_offset": 1304296,
+      "symbol": "lab_com_lifetime_delete_hook",
+      "original_hex": "f44fbea9",
+      "branch_hex": "b7de6414"
+    },
+    {
+      "main_offset": 1557584,
+      "symbol": "lab_held_blue_charge_hook",
+      "original_hex": "011da84e",
+      "branch_hex": "93676314"
+    },
+    {
+      "main_offset": 403176,
+      "symbol": "lab_first_place_hold_hook",
+      "original_hex": "081941b9",
+      "branch_hex": "43b76714"
+    },
+    {
+      "main_offset": 403688,
+      "symbol": "lab_first_place_snipe_hook",
+      "original_hex": "ff4301d1",
+      "branch_hex": "40b76714"
+    },
+    {
+      "main_offset": 403192,
+      "symbol": "lab_first_place_timeout_hook",
+      "original_hex": "ffc300d1",
+      "branch_hex": "38b86714"
+    },
+    {
+      "main_offset": 401056,
+      "symbol": "lab_horn_blue_hook",
+      "original_hex": "7fc200b9",
+      "branch_hex": "09bd6714"
+    },
+    {
+      "main_offset": 377880,
+      "symbol": "lab_corner_recheck_hook",
+      "original_hex": "14a140b9",
+      "branch_hex": "53e56714"
+    },
+    {
+      "main_offset": 452972,
+      "symbol": "lab_bounded_drift_heading_hook",
+      "original_hex": "616240f9",
+      "branch_hex": "3f9b6714"
+    },
+    {
+      "main_offset": 459836,
+      "symbol": "lab_cpu_paired_view_initial_hook",
+      "original_hex": "604200f9",
+      "branch_hex": "aa966714"
+    },
+    {
+      "main_offset": 460076,
+      "symbol": "lab_cpu_paired_view_update_hook",
+      "original_hex": "604200f9",
+      "branch_hex": "c8966714"
+    },
+    {
+      "main_offset": 1561500,
+      "symbol": "lab_cpu_inward_charge_hook",
+      "original_hex": "0020221e",
+      "branch_hex": "39ef6314"
+    },
+    {
+      "main_offset": 401300,
+      "symbol": "lab_mushroom_wait_hook",
+      "original_hex": "e10f1c32",
+      "branch_hex": "4d5c6814"
+    },
+    {
+      "main_offset": 8119748,
+      "symbol": "lab_star_shortcut_hook",
+      "original_hex": "ff8302d1",
+      "branch_hex": "6eee4a14"
+    },
+    {
+      "main_offset": 401812,
+      "symbol": "lab_golden_route_gate",
+      "original_hex": "c0040037",
+      "branch_hex": "28656814"
+    },
+    {
+      "main_offset": 401924,
+      "symbol": "lab_golden_ordinary_gate",
+      "original_hex": "40010037",
+      "branch_hex": "88656814"
+    },
+    {
+      "main_offset": 401352,
+      "symbol": "lab_golden_delay_hook",
+      "original_hex": "480b8052",
+      "branch_hex": "93666814"
+    },
+    {
+      "main_offset": 401776,
+      "symbol": "lab_golden_shortcut_retry_hook",
+      "original_hex": "88020034",
+      "branch_hex": "2b666814"
+    },
+    {
+      "main_offset": 401440,
+      "symbol": "lab_star_defense_hook",
+      "original_hex": "68d24339",
+      "branch_hex": "f1626814"
+    },
+    {
+      "main_offset": 381932,
+      "symbol": "lab_native_driving_trace_hook",
+      "original_hex": "68064139",
+      "branch_hex": "b6646814"
+    },
+    {
+      "main_offset": 380604,
+      "symbol": "lab_early_drift_pid_entry_hook",
+      "original_hex": "08080054",
+      "branch_hex": "99676814"
+    },
+    {
+      "main_offset": 381280,
+      "symbol": "lab_early_drift_pid_finish_hook",
+      "original_hex": "ec03422d",
+      "branch_hex": "6b676814"
+    },
+    {
+      "main_offset": 314924,
+      "symbol": "lab_racer_follow_update",
+      "original_hex": "c8eeff97",
+      "branch_hex": "7daf6894"
+    },
+    {
+      "main_offset": 311416,
+      "symbol": "lab_racer_follow_target",
+      "original_hex": "dd2d0094",
+      "branch_hex": "f8b26814"
+    },
+    {
+      "main_offset": 298224,
+      "symbol": "lab_racer_follow_secondary",
+      "original_hex": "bf3a0094",
+      "branch_hex": "5cc06814"
+    },
+    {
+      "main_offset": 8119320,
+      "symbol": "lab_flow_lane_target_hook",
+      "return_symbol": "lab_flow_lane_target_return",
+      "continuation": 8119372,
+      "original_hex": "6086522d",
+      "branch_hex": "66464a14",
+      "consumed_start": 8119320,
+      "consumed_end": 8119372,
+      "replayed_native_sha256": "a13e1a7eb3540b0e8fbd768a96784b6b8e784a22c615cd9eeb7b225aa8e7f793"
+    },
+    {
+      "main_offset": 1610008,
+      "symbol": "lab_flow_lane_contact_hook",
+      "return_symbol": "lab_flow_lane_contact_return",
+      "continuation": 1610012,
+      "original_hex": "60de41bd",
+      "branch_hex": "db1b6314",
+      "consumed_start": 1610008,
+      "consumed_end": 1610012,
+      "replayed_native_sha256": "68be14a6d28dae64faf5ddbc39ed15f7458eae999b0f7034e6723f3ee304b4a1"
+    },
+    {
+      "main_offset": 401960,
+      "symbol": "lab_golden_active_narrow_hook",
+      "original_hex": "94169f1a",
+      "branch_hex": "afd06814"
+    },
+    {
+      "main_offset": 287488,
+      "symbol": "lab_lightning_picker_entry_hook",
+      "original_hex": "ff0306d1",
+      "branch_hex": "3d446914"
+    },
+    {
+      "main_offset": 288576,
+      "symbol": "lab_lightning_curve_hook",
+      "original_hex": "00013fd6",
+      "branch_hex": "30436914"
+    },
+    {
+      "main_offset": 400908,
+      "symbol": "lab_lightning_delay_hook",
+      "original_hex": "68ee00b9",
+      "branch_hex": "d6d56814"
+    },
+    {
+      "main_offset": 315580,
+      "symbol": "lab_director_promotion_hook",
+      "original_hex": "940600d1",
+      "branch_hex": "df336914"
+    },
+    {
+      "main_offset": 1303988,
+      "symbol": "lab_shared_jobs_pre_hook",
+      "original_hex": "49c21394",
+      "branch_hex": "69706594"
+    },
+    {
+      "main_offset": 1304008,
+      "symbol": "lab_shared_jobs_post_hook",
+      "original_hex": "fd7b43a9",
+      "branch_hex": "b8706514"
+    }
+  ],
+  "nso_sha256": "ec5d860af09e63dfa0e4fa258e91ec770a0cc1d883e9e7d75474d8bf9a987682",
+  "patch_sha256": "b4c2a9a91dedad665af709f2bd899ba7a6f75e8c6a77752453c2959ac4294a5f",
+  "sources": {
+    "unit-000/header.S": "fa7c821604026c28fae6273b90b2a5ce0ccfeb2437de5c1ee20bf26bb92420d5",
+    "unit-001/observer.c": "12cd003b22a5fc3147bc9271b52b0ea30c94ae54fa1247913ba3b55733ef2bc0",
+    "unit-002/drift_entry_alignment_v305.c": "e73fbec37c659476098454cbe19973ac6d4d7629c14ca9ce50c5d3471ef3bb19",
+    "unit-003/drift_entry_alignment_v305.S": "0a52eaebdc718bf1a826e253cdb627d5e82c5728a2849f289c5c9ec6f0aed9d0",
+    "unit-003/register_context.inc": "f84d8b8fee34f9dc1fe88c73e73f349d86d8e960a890249881c353fdc6166d0c",
+    "unit-004/golden_finish_urgency_v305.c": "31be0f9a8284e36d28f3f8a0ff176af42df441248238fc42a0eb24493edc0f24",
+    "unit-005/director_core_v305.h": "428a07d89615085e716e7b76010f8a0fca2834c759d7b962589287b0d4dc89e6",
+    "unit-005/director_ladder_native_v305.h": "30c4caabf7ef6f43553df0c0c0d731dc5d0c77e99ec2ecf745ea12ea881f87e9",
+    "unit-005/director_ladder_runtime_v305.h": "388344e69e2863ee5d31432404202d9beb11d6a1be3f3e4a1f99086d70544639",
+    "unit-005/director_opening_core_v305.h": "c0c2506cdfb2a94eed6531022affb0e9a01ae59fcd0d3f3cd5f669c8278e0c36",
+    "unit-005/director_opening_runtime_v305.h": "61773c7e370fe101bfb01d6d75741fbbe9961b821250d5cadac9ee9fc1cb9747",
+    "unit-005/director_pressure_native_v305.h": "7dd5c276ba567fcc787775f1976c0d843732b671b5d263bb434e48da7b3fb569",
+    "unit-005/director_pressure_pace_v305.h": "231f5c036562524cacd6f5ecef9cb45d972bf85886b52eab562e5b13816ad9ee",
+    "unit-005/director_pressure_runtime_v305.h": "58efc6f2d58e2a025d4e1662ecfea4f51f9ddc0b0e2c4caf872703bd73cd45e0",
+    "unit-005/director_runtime_v305.c": "5fb79d098bd2894e31b3ee29aa6bca4e9231cbe35748d4e7738c30b5e1e359ea",
+    "unit-005/director_runtime_v305.h": "3136acc80f58f07ad8c9a53ad9dcd98f419647f614638aea5b661906b908166b",
+    "unit-005/golden_promotion_publication_v305.h": "0ca9e5dd56879dfb87036e861a6d228b1537c333768be9e05c787df0f59d8f83",
+    "unit-006/director_runtime_v305.S": "2af992a67449a0a2a622e8cb34fa63c2f9d1e8fc7d4d39e87419465872f8fb6d",
+    "unit-006/register_context.inc": "f84d8b8fee34f9dc1fe88c73e73f349d86d8e960a890249881c353fdc6166d0c",
+    "unit-007/director_core_v305.c": "d69a57abfb5979bb60543fb210232b37a3ea254d14aceefadbd72f0f7799f772",
+    "unit-007/director_core_v305.h": "428a07d89615085e716e7b76010f8a0fca2834c759d7b962589287b0d4dc89e6",
+    "unit-007/director_opening_core_v305.h": "c0c2506cdfb2a94eed6531022affb0e9a01ae59fcd0d3f3cd5f669c8278e0c36",
+    "unit-008/native_turbo_commit_v305.c": "2eeea81ee47ca67175f50aa002a5cad580c412a2d36b4477d6170762012d52fd",
+    "unit-008/native_turbo_commit_v305.h": "73fdd905c9466409727be0a9daaed476e0c26f4aeaa10cecb6c40000a6a25dc7",
+    "unit-009/native_turbo_commit_v305.S": "5f2709780e7d3849edea573ccc3f5d76508362da200276263e9f2d2f8764599a",
+    "unit-009/register_context.inc": "f84d8b8fee34f9dc1fe88c73e73f349d86d8e960a890249881c353fdc6166d0c",
+    "unit-010/flow_lane_observer_v305.c": "0cc6ef640154ce8903e6bb460b73d5ad21d879793b3b6a042fe0ce71e347745f",
+    "unit-010/flow_lane_observer_v305.h": "1c8637d97fa78d39479c601c533bb78bd669920968a8134bb951966f5e06efb8",
+    "unit-011/flow_lane_observer_v305.S": "0f59ff296e95c649c01b464d8580a4adfd442ad5205f825a747704e4bc9dae52",
+    "unit-011/register_context.inc": "f84d8b8fee34f9dc1fe88c73e73f349d86d8e960a890249881c353fdc6166d0c",
+    "unit-012/first_place_defense_v305.c": "e116567aecf4d92cd2eeb8ad17f463b91f04e69cc3d9946262ed197dd8831877",
+    "unit-012/item_rank_fallback_v305.h": "4350dd0d1b78bb5dc3bbab64472fb8603f5ad6dca051d2ae01130f70b647900c",
+    "unit-013/first_place_defense_v305.S": "153728bbf103d3601a278d4db5af85ad643488ea2293240b239cc77aa2048fd1",
+    "unit-013/register_context.inc": "f84d8b8fee34f9dc1fe88c73e73f349d86d8e960a890249881c353fdc6166d0c",
+    "unit-014/horn_blue_defense_v305.c": "0a1cc1b7e224b21c6262e1455f03f85f6ac0607128ef57f19e9e6c3f66d9780c",
+    "unit-014/item_rank_fallback_v305.h": "4350dd0d1b78bb5dc3bbab64472fb8603f5ad6dca051d2ae01130f70b647900c",
+    "unit-015/horn_blue_defense_v305.S": "c41f9ef8eba1063a43e5af9f4b0ced6243e5d674bdf3a4b103387118cb58534c",
+    "unit-015/register_context.inc": "f84d8b8fee34f9dc1fe88c73e73f349d86d8e960a890249881c353fdc6166d0c",
+    "unit-016/bounded_drift_heading_observation_v305.h": "ab93a7cf05efa8f05038dd9430ca0d051a77a71fc521cd41af2aae43c85a7ab1",
+    "unit-016/bounded_drift_heading_v305.c": "496b43c394f143ae52b0b127c61d8eb795166febc2d75933e887990a2a68dc01",
+    "unit-016/drift_heading_node_v305.h": "3ea565c7d0571184500bff199c196650cdc1d81489885bd7e62df12febcbb626",
+    "unit-016/native_base_envelope_v305.inc": "3499517376651d08e2afa7bcd509b41329a3c7a6be8d322e499325c5bbc9e22d",
+    "unit-016/snaking_cached_predecessor_v305.h": "7c59efd174d598155b08eb774e128acdb0d01fc8a09e4f4ac75eb25cc836cecd",
+    "unit-016/snaking_heading_compensation_v305.h": "9ddce9e72d0e3ea6b75404317cf273176224135968bded29747039e56fdd4b70",
+    "unit-016/snaking_previous_base_heading_v305.h": "0f9b0552015596d7e066cd58d29ce38630536836fe36b5fe7244c4fae2914c6a",
+    "unit-016/snaking_route_goal_v305.h": "5edc319d7d85267e866102c809af20f52659b5c4c6f51991b511643574a71a75",
+    "unit-017/bounded_drift_heading_v305.S": "d6711fbc93bf0be14a8d8e3a32a5b9d4ce33c0e36b871163596fe8992922eaef",
+    "unit-017/register_context.inc": "f84d8b8fee34f9dc1fe88c73e73f349d86d8e960a890249881c353fdc6166d0c",
+    "unit-018/corner_recheck_v305.c": "9cdb80bc51e53e7ce475a38435b3bba33a579a161379b03f238d9b82343972af",
+    "unit-019/corner_recheck_v305.S": "df1dfee76dc7c7c5d41be1b1b9693efe127b3a76536a19a9e74f1acfd62dda35",
+    "unit-019/register_context.inc": "f84d8b8fee34f9dc1fe88c73e73f349d86d8e960a890249881c353fdc6166d0c",
+    "unit-020/cpu_paired_route_view_v305.c": "1c78e1db4b9183f57279d49cc1a241ec5605db4f20cde56c85830374d9f56381",
+    "unit-021/cpu_paired_route_view_v305.S": "dc488671b8105743b9a28a46ba747a4913c3bcff4befad7e68775745885df1e9",
+    "unit-021/register_context.inc": "f84d8b8fee34f9dc1fe88c73e73f349d86d8e960a890249881c353fdc6166d0c",
+    "unit-022/earned_boost_v305.S": "f829730d27756bddd14bea3f7809859f8bab95b021babc6d02834957acf3624d",
+    "unit-023/held_blue_charge_v305.S": "34a34273266c2570e65b4001bbf80b78a0b2ad650d5f21e723035986602215db",
+    "unit-024/drift_pace_floor_v305.c": "df0afab7c1bb067179423f5ef6ebbdcda70fffdb8dc0b9649e11530742d324ee",
+    "unit-025/drift_pace_floor_v305.S": "f4b5f1935f989ad41d73dff47c74a7d5600b142a9c0a6600603de633aaf214f1",
+    "unit-025/register_context.inc": "aebf0881a8a995b6400090bb6fb387b10f1784e9b8f06a6f3d71cf7d42ecbda3",
+    "unit-026/ratio_ceiling_v305.S": "16124b66eaa11dc1b00f4d700e5616c7360ceae6f4c167312a1c4fcca52db576",
+    "unit-027/blue_finish_segment_bridge_v305.h": "1e6d94fc263da86d48017cc4587bfa7f1c4e47d80027547710ff5dd82fd26b3b",
+    "unit-027/corner_arc_geometry_operand_trace_v305.h": "db588845d8e6889044ffd11249b2d652b0d94248b53382adaed3bda0110d3540",
+    "unit-027/corner_arc_geometry_trace_v305.h": "bf5b1f03300f62b787c6aba8fba7b89db569e37216ddabf52846479535c78393",
+    "unit-027/corner_arc_mixed_bend_v305.h": "9cf4b723a85eac53c611e81bfd55336282ff1e1dbd0bb89597075dcf4aef435c",
+    "unit-027/corner_arc_selected_successor_overlay_v305.h": "030d88d58a03021f371359de07f6f45bfb8ccd412c1f78645622c811b5fa3212",
+    "unit-027/corner_arc_selected_successor_v305.h": "0f5acade144f3e9d83bec9e5d86e94ee7d3808b9126998e8637e07b2e0897389",
+    "unit-027/corner_native_road_plane_v305.h": "d70420fe2651fe0f12fa847acd04efec24af7e9fc122a7271b73e337aac46664",
+    "unit-027/corner_plane_context_v305.h": "4075231963d3c0523b497441d4f51e6066fa12ddc41fa968eda6f985b92df955",
+    "unit-027/corner_prefix_v305.h": "71a88557ca839108fadbb14ba76cb6db74389a57dec521d38f2798429f29cd83",
+    "unit-027/drift_completion_grace_v305.c": "a4273e2dc7969236d997f6cfe25886c540dc5e35366e72cab35a85dbd66bb255",
+    "unit-027/time_trial_driving_scope_v305.h": "0b85339e521e4dc2869056cba6e93128655d3957297fc715400e07e0b9d1adbb",
+    "unit-028/drift_completion_grace_v305.S": "c6a0bb60837cd8e978ecc4541bb677b626d977706f59f8dd509d0677ad1bc779",
+    "unit-028/register_context.inc": "f84d8b8fee34f9dc1fe88c73e73f349d86d8e960a890249881c353fdc6166d0c",
+    "unit-029/native_accepted_ground_target_v305.h": "e8e9dd3fccb1c67b6bced29e657c0ba7f355d85c5938db4fe5b93658dffd7a83",
+    "unit-029/snaking_accepted_ground_target_v305.h": "3e1ac478751392a18ba476e679d9a46c4e411f13dcf0b3614e1d5d68b7a7708f",
+    "unit-029/snaking_air_boundary_v305.h": "9d54fa2490e7effb1ca8f6dbea8a2a129a4d5417c0814b40c9d7a2c7f5bf976d",
+    "unit-029/snaking_air_target_history_v305.h": "c24a95ce9cdfd4ec67dee0abf94e141e0eda0bdef39e1f46c0d12dbe1844c4cd",
+    "unit-029/snaking_axis_history_diag_v305.h": "33ffde0dbb6c0bd14731b071084358498bcad4d1d010afa0f135de97ea77b598",
+    "unit-029/snaking_cached_predecessor_v305.h": "7c59efd174d598155b08eb774e128acdb0d01fc8a09e4f4ac75eb25cc836cecd",
+    "unit-029/snaking_collinear_node_v305.h": "f5173a45019ec0bba6ad0b137d62465f0d2bf148d3ca849133c8bff67ca5a48c",
+    "unit-029/snaking_cpu_charge_horizon_v305.h": "5d2d537301bbf424a694d9e9f8033d66ef08f9a737ef12556430d84aae164688",
+    "unit-029/snaking_current_surface_v305.h": "f2d717c537a50c72dcb199ff70e7b5f3b3da52ca6375374422705a0ae8095f23",
+    "unit-029/snaking_drift_frame_v305.h": "db007833d2832ae0521b820c97b3beded5fd53b409f031e3f45cc905201f7020",
+    "unit-029/snaking_drift_refusal_diag_v305.h": "27810161d1a585b932a48a443c01e6e45284853021e1a14fbe20967f51fb6e3b",
+    "unit-029/snaking_entry_choice_v305.h": "1612c50aa17eb17bc9dc3ed914c144b349af0f86f454952d4f2f4ece0d4eb6c0",
+    "unit-029/snaking_ground_base_predecessor_v305.h": "32ec9b9863a9839b96cf02b36af8be78776496b5d397c3811493146c4812ea5d",
+    "unit-029/snaking_ground_future_generated_v305.h": "72cbdbd934d3882359b2fc8b53686656477214941e9857dd83f09519c50a490e",
+    "unit-029/snaking_ground_route_recovery_generated_v305.h": "72176578667a1832bd75ecf661f5696635a671d949c40102d299db05b04daa5c",
+    "unit-029/snaking_ground_window_occupation_v305.h": "554b2f0f2ab35a544bc1c739a6a3f87358e19f1315422434de2c4478cea19858",
+    "unit-029/snaking_hop_air_route_frame_v305.h": "834ab79afec338094b066a53fab0eb8e198525856077d93d35a0af68345ef6fd",
+    "unit-029/snaking_hop_base_successor_v305.h": "5512398d6eeb62dff9f327a3bdbc87cb119b25eddfd72a11e612f8b6301cebbb",
+    "unit-029/snaking_hop_frame_v305.h": "a6c5cf80fcf8d0d8f3b0647f68899d1791dc1cba5140efc3d981b7879c56d4e1",
+    "unit-029/snaking_hop_node_bridge_v305.h": "e5da149097a9a0cbfee49ff0b629843984e7a34edda0c53f3a9f5433a8151a3d",
+    "unit-029/snaking_hop_refusal_diag_v305.h": "ce7e16eb1e42d996fa60d85e6e9cd8937c404f11b318ada7f23017c3fd5a21a7",
+    "unit-029/snaking_hop_refusal_future_generated_v305.h": "640d0d9447c9bc1efd2b03be6fc4afee1abd3b4a2a74d7f38eface82c6edfc28",
+    "unit-029/snaking_hop_road_projection_v305.h": "7fea77b8777997eb01b561bdd11dc291260ae39e66def5d3296a901d001b81bd",
+    "unit-029/snaking_hop_route_recovery_v305.h": "ab9fe2dd042c7be714f394afaddc64fb9d7dad032f3b194a57813e6bafe576a3",
+    "unit-029/snaking_hop_vector_refusal_diag_v305.h": "ae213ee43ef3518669002a7d01fcc1482b01c920ab4f833ff0fbdbd29ef9fcb3",
+    "unit-029/snaking_hop_vector_refusal_generated_v305.h": "ca21678ff7971c519bc6e99a34be5bfca272a7025e2cf546bf990ba5eba5198d",
+    "unit-029/snaking_landing_prediction_v305.h": "3194571bd6967154f095b03afd6bff8427464138695f8cdd6fa65bfe2c7a3e88",
+    "unit-029/snaking_local_gravity_v305.h": "9ef6d84c74f290c758e7f97b72dce05f30e2883497431814ae344105eaef6321",
+    "unit-029/snaking_native_collision_target_v305.h": "78c27735b21690d9208b8711c55cf389d75d86aecbebcde3d8bd87cfe71cfc0a",
+    "unit-029/snaking_native_ground_axis_proposal_v305.h": "fbc1b076c9ff0f43750481341148d77285c39563994277bf414fe07abd64eab6",
+    "unit-029/snaking_normal_flag_scope_v305.h": "33b2d2fca04e2471eef79ec3a69705cda106ea50ad1b7f5dec444d7561163193",
+    "unit-029/snaking_retained_ground_target_v305.h": "f0b0f9d5b72762bc9ab5eeafd30334055ba5051c0cc546d2d9848f10f62dc66e",
+    "unit-029/snaking_scope_retirement_v305.h": "85ba0f5d6d6dda8090eb63ad3baac00689f76cd7961df4f3776f8e005c02aee5",
+    "unit-029/snaking_selected_boundary_v305.h": "e62dcbc6961b632453ab16a304e5ede59611fb562026c7b71f34d13588be17d7",
+    "unit-029/snaking_selected_joint_v305.h": "ac74f083435bfe1a41234296f8d6e22ce096dea9b40a0f0eed725fdc5ccdae80",
+    "unit-029/snaking_settled_admission_v305.h": "2e9bfa63cfe33422a6575b2ddc8f45324816e45ebc1235ed9febe80fdeb7ed0a",
+    "unit-029/snaking_success_recheck_v305.h": "ae11f91225089ef5fc276c93e6b9c212940e4be76baf3e2474042f8f5da99053",
+    "unit-029/snaking_takeoff_history_v305.h": "870adff32f80b793e45d3a7eef41b4f62e12d9c471491fd6808b8d8a4a41f7a5",
+    "unit-029/snaking_v305.c": "afaf85aeaa21ec324cbba561bfd70edcd2655f31f00b615ccd9b60198611b6c6",
+    "unit-029/time_trial_driving_scope_v305.h": "0b85339e521e4dc2869056cba6e93128655d3957297fc715400e07e0b9d1adbb",
+    "unit-030/register_context.inc": "f84d8b8fee34f9dc1fe88c73e73f349d86d8e960a890249881c353fdc6166d0c",
+    "unit-030/snaking_v305.S": "93b11b48c12ce405db276115a7d2142bd0dcb7e036a3c4ab84dd145395c64d9e",
+    "unit-031/com_lifetime_v305.c": "f84b302b27e3a2210762381607259ba7c0265d1be75120f503bce8b3f7b37013",
+    "unit-032/com_lifetime_v305.S": "ca80d7cceb754975d0235522323f6d3a5ada8f918a901f85a3c5575d6093328e",
+    "unit-032/register_context.inc": "f84d8b8fee34f9dc1fe88c73e73f349d86d8e960a890249881c353fdc6166d0c",
+    "unit-033/native_driving_trace_v305.c": "3846e8b045e80f9178fb01ee0177ce9b76630a209246c16f1a009b2b4ed4edc0",
+    "unit-033/native_driving_trace_v305.h": "db13be89c1e10bb58f0a55a7140dd438454572d628d760f82423f199079e4238",
+    "unit-034/native_driving_trace_v305.S": "72fd18f9c3f70b78529d4c5b9130f70d484ac21be374b01e9932860039048d03",
+    "unit-034/register_context.inc": "f84d8b8fee34f9dc1fe88c73e73f349d86d8e960a890249881c353fdc6166d0c",
+    "unit-035/early_drift_pid_v305.c": "97c9b722b6f93ac8a06513eda8df0488a1501eab2cef85a8a053f318e8d5a5f8",
+    "unit-036/early_drift_pid_v305.S": "af9afdb2d50dd9ba6763e012c537cc00ffea6a7a3811478d7293b10a40309aae",
+    "unit-036/register_context.inc": "f84d8b8fee34f9dc1fe88c73e73f349d86d8e960a890249881c353fdc6166d0c",
+    "unit-037/native_base_envelope_v305.inc": "3499517376651d08e2afa7bcd509b41329a3c7a6be8d322e499325c5bbc9e22d",
+    "unit-037/racer_follow_guard_v305.c": "5707cc3345da40baafe7c9a509111b287348b51b53f731b1bf422cafcc8da2eb",
+    "unit-038/racer_follow_guard_v305.S": "1e4b60a8cdd40ba8f9e723c6714da29575e1666f2c9f035e483ee51e640f5d26",
+    "unit-038/register_context.inc": "f84d8b8fee34f9dc1fe88c73e73f349d86d8e960a890249881c353fdc6166d0c",
+    "unit-039/racer_follow_returns_v305.S": "e7ab028631f93968cb765fd93d5fcf355c016bc093c6338ed3bfb25d169f74ef",
+    "unit-040/cpu_inward_charge_v305.S": "3aa3de53de937636d8132e9019ec5f18d42e48a434dcb5b468327b6d7023cfeb",
+    "unit-041/mushroom_wait_v305.S": "615913f3c3827a00967b2d121ddd979ef9e22fe107a48a2b61042a73dee015cd",
+    "unit-042/star_shortcut_v305.c": "2235b63938a50b0b445ac48cda8c2f84a91adf25934656d8681448a9fc57b2e7",
+    "unit-043/register_context.inc": "aebf0881a8a995b6400090bb6fb387b10f1784e9b8f06a6f3d71cf7d42ecbda3",
+    "unit-043/star_shortcut_v305.S": "0b425d6db8d5a4f1e79ad34e690841806ac9aff9176d81fa31558057b263d9e6",
+    "unit-044/star_defense_v305.c": "61a6b6232da259b0bb60a0c182f0958ba460d574c3733aaf7af293c6e5cf4822",
+    "unit-044/star_own_green_v305.h": "ee69ee4396ac0e8261df5b8fedccc5a31b0f8b26f81847df227c8ac46e8b0a0c",
+    "unit-045/register_context.inc": "f84d8b8fee34f9dc1fe88c73e73f349d86d8e960a890249881c353fdc6166d0c",
+    "unit-045/star_defense_v305.S": "db34db5ddca5b99da78b93482f657762fb052eca1dcde140da22984b6b78a221",
+    "unit-046/star_item_hazard_v305.c": "d66c2e97f55272b270e0bb7f632aa70f863d77678e750dc7cd571e87a85a50c0",
+    "unit-047/golden_active_repeat_v305.c": "e7296db038a1db4707f706edeea6163319978cb636d0ba1a65a16425dbb90fa2",
+    "unit-048/golden_active_repeat_v305.S": "3fb4686912a6bd9632b1186100a646da94ea3df85a8d8b24c8cc7278fb34c9ed",
+    "unit-048/register_context.inc": "f84d8b8fee34f9dc1fe88c73e73f349d86d8e960a890249881c353fdc6166d0c",
+    "unit-049/item_rank_fallback_v305.c": "9e863a3d74aca5e82f6c3414f64868fd5b7b290335244620a2525dbb76f74648",
+    "unit-050/golden_boundary_adapter_v305.c": "dcf44171752e159abbdf4e5b64c66a63ca5ebbb2a1bd2b231857ac0f8d58d952",
+    "unit-050/golden_boundary_adapter_v305.h": "93125d2c299ba0d8e47a7484d8c2d7842bf74b4307f08660e26dc045a7ca72be",
+    "unit-050/golden_promotion_bridge_v305.h": "e58172121e214b0e36908e0485ae6f8601dd0441b33aeef8b6a05ba1410a2270",
+    "unit-050/golden_promotion_policy_v305.h": "514c72229c2e2e65ff601731445c9382d485d2299787c81baaba1eb575fe3efb",
+    "unit-050/golden_promotion_publication_v305.h": "0ca9e5dd56879dfb87036e861a6d228b1537c333768be9e05c787df0f59d8f83",
+    "unit-050/item_source_policy.h": "ddf05443de7ecfcf557630bab6593b345fc9c18caae365d5befe484ed47155a7",
+    "unit-050/item_task_collect.h": "a67144f244e40195dd076507dc760239d64c1d380856286507e1222f2733f6f2",
+    "unit-050/manual_intent.h": "14e7db034ad3f3517b93239dad2da199b0c768de72f5803a55893d2a9087ad30",
+    "unit-050/native_admission.h": "4e0f41422a56949852e506ce84c2ba3ee57e6d0618da653adb5c5e0cae9d548c",
+    "unit-050/queue_thread.h": "a09b2e1a3ecdcb8aef7813fd1df5dc62a3ebc8642f58896581b723e7a7555ee5",
+    "unit-051/golden_boundary_adapter_v305.S": "ea576871f419e7d7d68c47cc06fec5b9f50ae3f06029b2805f1a870203ac81c7",
+    "unit-051/register_context.inc": "f84d8b8fee34f9dc1fe88c73e73f349d86d8e960a890249881c353fdc6166d0c",
+    "unit-052/golden_boundary_adapter_v305.h": "93125d2c299ba0d8e47a7484d8c2d7842bf74b4307f08660e26dc045a7ca72be",
+    "unit-052/golden_promotion_policy_v305.c": "9c9e3ea10cb78c275c3f0274e1bc66dee22a8796b02296a5486e383c6e84d6bb",
+    "unit-052/golden_promotion_policy_v305.h": "514c72229c2e2e65ff601731445c9382d485d2299787c81baaba1eb575fe3efb",
+    "unit-052/manual_intent.h": "14e7db034ad3f3517b93239dad2da199b0c768de72f5803a55893d2a9087ad30",
+    "unit-053/golden_promotion_publication_v305.c": "e4e085c2ca75827873332b2ffd96a7eb4cfa30f837c101170378bb39b74c2b19",
+    "unit-053/golden_promotion_publication_v305.h": "0ca9e5dd56879dfb87036e861a6d228b1537c333768be9e05c787df0f59d8f83",
+    "unit-054/manual_intent.h": "14e7db034ad3f3517b93239dad2da199b0c768de72f5803a55893d2a9087ad30",
+    "unit-054/native_admission.h": "4e0f41422a56949852e506ce84c2ba3ee57e6d0618da653adb5c5e0cae9d548c",
+    "unit-054/queue_thread.c": "015170a8592d69c74baf028c163859b6d92322f5171e3eb25943c4617514768d",
+    "unit-054/queue_thread.h": "a09b2e1a3ecdcb8aef7813fd1df5dc62a3ebc8642f58896581b723e7a7555ee5",
+    "unit-054/queue_thread_layout.h": "174480fff0dcc30d417fd4b20b8b5a33c79532e755e082a5c1c38e8c64637d74",
+    "unit-055/item_source_policy.h": "ddf05443de7ecfcf557630bab6593b345fc9c18caae365d5befe484ed47155a7",
+    "unit-055/item_task_collect.c": "f5f7dc383bc2cc5a6ba78819517eed4ced122244daa4f9afc0e50960f6fa7c66",
+    "unit-055/item_task_collect.h": "a67144f244e40195dd076507dc760239d64c1d380856286507e1222f2733f6f2",
+    "unit-056/golden_native_readiness_generated_v305.c": "aca2a89233aacda9950510d6463ffc4fa00589182030c07866db1e251eb15ac2",
+    "unit-056/manual_intent.h": "14e7db034ad3f3517b93239dad2da199b0c768de72f5803a55893d2a9087ad30",
+    "unit-057/director_pressure_native_v305.c": "efd7cf81ad0edbfb6ba5ec4bf789356f4305c2737366d783ed962166fe241650",
+    "unit-057/director_pressure_native_v305.h": "7dd5c276ba567fcc787775f1976c0d843732b671b5d263bb434e48da7b3fb569",
+    "unit-057/director_pressure_pace_v305.h": "231f5c036562524cacd6f5ecef9cb45d972bf85886b52eab562e5b13816ad9ee",
+    "unit-058/director_pressure_pace_v305.c": "79d829cce28904989de94435d34f47da6b26c50a3f92ea47753996f71079d2ab",
+    "unit-058/director_pressure_pace_v305.h": "231f5c036562524cacd6f5ecef9cb45d972bf85886b52eab562e5b13816ad9ee",
+    "unit-059/star_finish_urgency_generated_v305.c": "462aa58fa9e12fec7e0982464bac46614a718f294c08bdd266a34cd87008b65c",
+    "unit-060/native_accepted_ground_target_v305.h": "e8e9dd3fccb1c67b6bced29e657c0ba7f355d85c5938db4fe5b93658dffd7a83",
+    "unit-060/native_ground_target_observer_v305.c": "a9760803579dc05322fe659d62762dea32259343ba531e74ab80c809886fef24",
+    "unit-060/native_ground_target_observer_v305.h": "ef80d518c060ba73df6efa85eeaee2d762b1d42688ce458c0dcb3a5545e8c6d3",
+    "unit-060/native_ground_target_scope_v305.h": "4e8e364114dbbf3a498916e5c76334c92aec955e685066116f7e31ad1d0e821c",
+    "unit-061/native_ground_target_observer_v305.S": "5b8414a501568b0436a2dde1f2ab61a1f48a59bfe3893479cf73694cea2bd510",
+    "unit-061/register_context.inc": "f84d8b8fee34f9dc1fe88c73e73f349d86d8e960a890249881c353fdc6166d0c",
+    "unit-062/native_ground_target_scope_v305.c": "6533e7ab1576a0857502ee04a3bafd79098f46ae115de497b474505286a30e85",
+    "unit-062/native_ground_target_scope_v305.h": "4e8e364114dbbf3a498916e5c76334c92aec955e685066116f7e31ad1d0e821c",
+    "unit-063/flow_lane_base_bias_v305.h": "9cabf9668e2011a0c9bf0562465286e99669967ad75c666cda0ded99ebf1ed47",
+    "unit-063/flow_lane_native_binding.c": "07ac7e29a7aed1732b91a3f36da9dc747e3f8f88b6bbf860e6267eb884c22a76",
+    "unit-063/flow_lane_native_binding.h": "9d2876e26579e0e470849578d77560bda4a56e068668e3924e1818eb65f7035d",
+    "unit-063/native_base_envelope_v305.inc": "3499517376651d08e2afa7bcd509b41329a3c7a6be8d322e499325c5bbc9e22d",
+    "unit-064/flow_lane_base_bias_v305.c": "250b8626ddeb0aecc73c18fd271f03365c37948ad660b8024b57c0ce922b3abf",
+    "unit-064/flow_lane_base_bias_v305.h": "9cabf9668e2011a0c9bf0562465286e99669967ad75c666cda0ded99ebf1ed47",
+    "unit-065/flow_lane_native_binding_geometry.h": "c101469e5062ab94d05b142b5abe804ac76c70ec8b9ed120f29929198995ef33",
+    "unit-065/flow_lane_native_binding_mesh.c": "bc35ec927cc0eadb0ab0375446a3dd840338fa04d8bc451919982d6f6d927245",
+    "unit-065/flow_lane_native_binding_mesh.h": "2b49e0d72ae63792fbc9bb472085d4e41795e0638b37ab9901b67206ad1d2aaa",
+    "unit-066/flow_lane_native_binding_contact.c": "9ae5412341e015743170c554ffeed1d7a22b2bd254525586c8991b24c5b428b4",
+    "unit-066/flow_lane_native_binding_contact.h": "0eae52b7f185d2b541a434aaad16c5d7ea7854aa02eab217d81bb31e94076b44",
+    "unit-066/flow_lane_native_binding_geometry.h": "c101469e5062ab94d05b142b5abe804ac76c70ec8b9ed120f29929198995ef33",
+    "unit-066/flow_lane_native_binding_mesh.h": "2b49e0d72ae63792fbc9bb472085d4e41795e0638b37ab9901b67206ad1d2aaa",
+    "unit-067/flow_lane_decode_cache_v305.h": "95db4133a4314c1b797502c93d96703b6bb7f0b7285bc1bd767da3ea8e727890",
+    "unit-067/flow_lane_native_binding_contact.h": "0eae52b7f185d2b541a434aaad16c5d7ea7854aa02eab217d81bb31e94076b44",
+    "unit-067/flow_lane_native_binding_geometry.h": "c101469e5062ab94d05b142b5abe804ac76c70ec8b9ed120f29929198995ef33",
+    "unit-067/flow_lane_native_binding_mesh.h": "2b49e0d72ae63792fbc9bb472085d4e41795e0638b37ab9901b67206ad1d2aaa",
+    "unit-067/flow_lane_native_edge_certificate_v305.c": "8abe2488c193060255d67a1c8bd47f7d3a9bb09ad9cefd0f65daed79bfbde08d",
+    "unit-067/flow_lane_native_edge_certificate_v305.h": "90649675297e2ce006f72d43310858d396f5ca79e5b2a1100ab08df72154ef6d",
+    "unit-067/flow_lane_native_point_contact_v305.h": "3d79e967268e9b1be401448808b1550be45001a5993d7ad79fe1570cd9d8ef2e",
+    "unit-068/flow_lane_native_binding_geometry.h": "c101469e5062ab94d05b142b5abe804ac76c70ec8b9ed120f29929198995ef33",
+    "unit-068/flow_lane_native_binding_mesh.h": "2b49e0d72ae63792fbc9bb472085d4e41795e0638b37ab9901b67206ad1d2aaa",
+    "unit-068/flow_lane_native_point_contact_v305.c": "4aef7ad248f3d9de0f7fb3fa00d2a00deb478a4227c9354a06cb6b2aed47cd5f",
+    "unit-068/flow_lane_native_point_contact_v305.h": "3d79e967268e9b1be401448808b1550be45001a5993d7ad79fe1570cd9d8ef2e",
+    "unit-069/flow_lane_decode_cache_v305.h": "95db4133a4314c1b797502c93d96703b6bb7f0b7285bc1bd767da3ea8e727890",
+    "unit-069/flow_lane_native_binding_contact.h": "0eae52b7f185d2b541a434aaad16c5d7ea7854aa02eab217d81bb31e94076b44",
+    "unit-069/flow_lane_native_binding_geometry.h": "c101469e5062ab94d05b142b5abe804ac76c70ec8b9ed120f29929198995ef33",
+    "unit-069/flow_lane_native_binding_mesh.h": "2b49e0d72ae63792fbc9bb472085d4e41795e0638b37ab9901b67206ad1d2aaa",
+    "unit-069/flow_lane_native_edge_certificate_v305.h": "90649675297e2ce006f72d43310858d396f5ca79e5b2a1100ab08df72154ef6d",
+    "unit-069/flow_lane_native_facet_route_v305.c": "53999e84c986000132cd50ef9506c491d5d24616e9b362dd8f4a4404362711b5",
+    "unit-069/flow_lane_native_facet_route_v305.h": "6639fa2c35d4d48a40fa6d1da1f90f80104a7b25daeffe356052f9dfc1cde485",
+    "unit-069/flow_lane_native_point_contact_v305.h": "3d79e967268e9b1be401448808b1550be45001a5993d7ad79fe1570cd9d8ef2e",
+    "unit-070/flow_lane_native_binding_geometry.c": "37f106c592e715e6cd7ec35c6eebad403ca991643e8d1a5cbeedb0431328aacf",
+    "unit-070/flow_lane_native_binding_geometry.h": "c101469e5062ab94d05b142b5abe804ac76c70ec8b9ed120f29929198995ef33",
+    "unit-071/flow_course_publication_v305.h": "34529d16517ba136237474e80f589d0f243376dd1270b14fbe7a986352d09bd9",
+    "unit-071/flow_lane_decode_cache_v305.h": "95db4133a4314c1b797502c93d96703b6bb7f0b7285bc1bd767da3ea8e727890",
+    "unit-071/flow_lane_native_binding_contact.h": "0eae52b7f185d2b541a434aaad16c5d7ea7854aa02eab217d81bb31e94076b44",
+    "unit-071/flow_lane_native_binding_geometry.h": "c101469e5062ab94d05b142b5abe804ac76c70ec8b9ed120f29929198995ef33",
+    "unit-071/flow_lane_native_binding_mesh.h": "2b49e0d72ae63792fbc9bb472085d4e41795e0638b37ab9901b67206ad1d2aaa",
+    "unit-071/flow_lane_native_edge_certificate_v305.h": "90649675297e2ce006f72d43310858d396f5ca79e5b2a1100ab08df72154ef6d",
+    "unit-071/flow_lane_native_facet_route_v305.h": "6639fa2c35d4d48a40fa6d1da1f90f80104a7b25daeffe356052f9dfc1cde485",
+    "unit-071/flow_lane_native_point_contact_v305.h": "3d79e967268e9b1be401448808b1550be45001a5993d7ad79fe1570cd9d8ef2e",
+    "unit-071/flow_lane_native_route_obstacles_v305.c": "66402a14d3a200b8db87bb6b42e5d45e08077ef8ba56cbc099c32a406480c684",
+    "unit-071/flow_lane_native_route_obstacles_v305.h": "1560db1fbff5fafb131f067af3273c17563db1ea5d4f81b42a651160c13a3523",
+    "unit-071/flow_lane_obstacle_groups_v305.h": "65491c72ba63efbc87e862f20e7168cbb32c66fa0efb8c0c1c5794ad08ec7de0",
+    "unit-071/flow_lane_prepared_geometry_v305.h": "8f21acd039be8716b662b91241a3973d12d15fcf51d9d6b6e0b196c56d2617fc",
+    "unit-072/flow_lane_native_binding_geometry.h": "c101469e5062ab94d05b142b5abe804ac76c70ec8b9ed120f29929198995ef33",
+    "unit-072/flow_lane_native_binding_mesh.h": "2b49e0d72ae63792fbc9bb472085d4e41795e0638b37ab9901b67206ad1d2aaa",
+    "unit-072/flow_lane_native_geometry_identity_v305.c": "3d57f06acc9709dc4571db90d2282af069458ffbf68935632ef0f401905630af",
+    "unit-072/flow_lane_native_geometry_identity_v305.h": "126024918391f26abdbe3eb3c243414e6a0afa22a7f2519fb85ba32961d38011",
+    "unit-073/flow_lane_base_bias_v305.h": "9cabf9668e2011a0c9bf0562465286e99669967ad75c666cda0ded99ebf1ed47",
+    "unit-073/flow_lane_native_binding.h": "9d2876e26579e0e470849578d77560bda4a56e068668e3924e1818eb65f7035d",
+    "unit-073/flow_lane_native_binding_geometry.h": "c101469e5062ab94d05b142b5abe804ac76c70ec8b9ed120f29929198995ef33",
+    "unit-073/flow_lane_native_binding_mesh.h": "2b49e0d72ae63792fbc9bb472085d4e41795e0638b37ab9901b67206ad1d2aaa",
+    "unit-073/flow_lane_native_geometry_identity_v305.h": "126024918391f26abdbe3eb3c243414e6a0afa22a7f2519fb85ba32961d38011",
+    "unit-073/flow_lane_native_lifetime_v305.c": "0e26577d41f52ff2d632c08a8fd14dae9ecd2ef86f9009a71847cb955ce6192a",
+    "unit-073/flow_lane_native_lifetime_v305.h": "76c9c30d160158b49efc01ff8187be183704094e739b6ab3c77e23ca55553cf1",
+    "unit-074/flow_lane_base_bias_v305.h": "9cabf9668e2011a0c9bf0562465286e99669967ad75c666cda0ded99ebf1ed47",
+    "unit-074/flow_lane_native_binding.h": "9d2876e26579e0e470849578d77560bda4a56e068668e3924e1818eb65f7035d",
+    "unit-074/flow_lane_native_flow_query_v305.c": "e5fcbda924fc7abc114b7a0849d0ec99fbe48b08dbf91bbd3bbcc72a63fa5cc6",
+    "unit-074/flow_lane_native_flow_query_v305.h": "0b5820a4290d0d6dd887028f8e0e9652d116e4668e1e7ac2c137da54601bcc51",
+    "unit-074/flow_lane_owned_query_impl_v305.h": "c648d99993ae891d1a82a5451abd7e4cf358d0ce9fab5370dfec6549b4d81ef0",
+    "unit-074/flow_lane_owned_query_v305.h": "2d498abff7438bdf022e707a6b9ad78c572cc141f1f25cf92cfdcbd25a17c9bc",
+    "unit-074/flow_lane_sealed_query_impl_v305.h": "73a2508689ee81951a23d8d54fd112910a046c78ca98b9c3d41b145f85d9da9d",
+    "unit-074/flow_lane_sealed_query_v305.h": "945fb6d51e24b498623b8f4ba4d6662039eede511b3ef7e4ef9d8b181cdedfe0",
+    "unit-075/flow_lane_native_cost_v305.c": "630d78914c2e1d7beb42998eff67b0814f5aa89c4f45087b7817e68bcf820610",
+    "unit-075/flow_lane_native_cost_v305.h": "6382b7cfe1f14e4f78abe856f68b6272fbba2a652f6a8b5eb97638f1cd4f61b6",
+    "unit-076/flow_course_publication_v305.h": "34529d16517ba136237474e80f589d0f243376dd1270b14fbe7a986352d09bd9",
+    "unit-076/flow_lane_base_bias_v305.h": "9cabf9668e2011a0c9bf0562465286e99669967ad75c666cda0ded99ebf1ed47",
+    "unit-076/flow_lane_decode_cache_v305.h": "95db4133a4314c1b797502c93d96703b6bb7f0b7285bc1bd767da3ea8e727890",
+    "unit-076/flow_lane_native_actuator_v305.c": "90ad56bf874524f86a22569467af8dfcef2cfd20fafa5bc1bdb1e55379b3df6a",
+    "unit-076/flow_lane_native_actuator_v305.h": "1e097a9102ab019e9951d7c745e3e9489e3a4ab876a3e5187659b297bf64ff6e",
+    "unit-076/flow_lane_native_binding.h": "9d2876e26579e0e470849578d77560bda4a56e068668e3924e1818eb65f7035d",
+    "unit-076/flow_lane_native_binding_contact.h": "0eae52b7f185d2b541a434aaad16c5d7ea7854aa02eab217d81bb31e94076b44",
+    "unit-076/flow_lane_native_binding_geometry.h": "c101469e5062ab94d05b142b5abe804ac76c70ec8b9ed120f29929198995ef33",
+    "unit-076/flow_lane_native_binding_mesh.h": "2b49e0d72ae63792fbc9bb472085d4e41795e0638b37ab9901b67206ad1d2aaa",
+    "unit-076/flow_lane_native_cost_v305.h": "6382b7cfe1f14e4f78abe856f68b6272fbba2a652f6a8b5eb97638f1cd4f61b6",
+    "unit-076/flow_lane_native_edge_certificate_v305.h": "90649675297e2ce006f72d43310858d396f5ca79e5b2a1100ab08df72154ef6d",
+    "unit-076/flow_lane_native_facet_route_v305.h": "6639fa2c35d4d48a40fa6d1da1f90f80104a7b25daeffe356052f9dfc1cde485",
+    "unit-076/flow_lane_native_flow_query_v305.h": "0b5820a4290d0d6dd887028f8e0e9652d116e4668e1e7ac2c137da54601bcc51",
+    "unit-076/flow_lane_native_geometry_identity_v305.h": "126024918391f26abdbe3eb3c243414e6a0afa22a7f2519fb85ba32961d38011",
+    "unit-076/flow_lane_native_lifetime_v305.h": "76c9c30d160158b49efc01ff8187be183704094e739b6ab3c77e23ca55553cf1",
+    "unit-076/flow_lane_native_point_contact_v305.h": "3d79e967268e9b1be401448808b1550be45001a5993d7ad79fe1570cd9d8ef2e",
+    "unit-076/flow_lane_native_route_obstacles_v305.h": "1560db1fbff5fafb131f067af3273c17563db1ea5d4f81b42a651160c13a3523",
+    "unit-076/flow_lane_obstacle_groups_v305.h": "65491c72ba63efbc87e862f20e7168cbb32c66fa0efb8c0c1c5794ad08ec7de0",
+    "unit-076/flow_lane_owned_query_v305.h": "2d498abff7438bdf022e707a6b9ad78c572cc141f1f25cf92cfdcbd25a17c9bc",
+    "unit-076/flow_lane_owner_contact_indices.h": "8be112ca850eeb5aaf2b2df5cf4ff50aa2876d0d0cb1ec7a70840df08fd441d0",
+    "unit-076/flow_lane_prepared_geometry_v305.h": "8f21acd039be8716b662b91241a3973d12d15fcf51d9d6b6e0b196c56d2617fc",
+    "unit-076/flow_lane_runtime_v305.h": "09c04034a8642d761c936ff52ba2b531ec4b2e3b6edf8107fe28f2404e435ec3",
+    "unit-076/flow_lane_scope_v305.h": "2fc177147cefe1358cffe07e7f7b7be56f22a3b51684a63d82f3507974ae6335",
+    "unit-076/flow_lane_sealed_query_v305.h": "945fb6d51e24b498623b8f4ba4d6662039eede511b3ef7e4ef9d8b181cdedfe0",
+    "unit-077/flow_lane_base_bias_v305.h": "9cabf9668e2011a0c9bf0562465286e99669967ad75c666cda0ded99ebf1ed47",
+    "unit-077/flow_lane_native_binding.h": "9d2876e26579e0e470849578d77560bda4a56e068668e3924e1818eb65f7035d",
+    "unit-077/flow_lane_native_binding_geometry.h": "c101469e5062ab94d05b142b5abe804ac76c70ec8b9ed120f29929198995ef33",
+    "unit-077/flow_lane_native_binding_mesh.h": "2b49e0d72ae63792fbc9bb472085d4e41795e0638b37ab9901b67206ad1d2aaa",
+    "unit-077/flow_lane_native_geometry_identity_v305.h": "126024918391f26abdbe3eb3c243414e6a0afa22a7f2519fb85ba32961d38011",
+    "unit-077/flow_lane_native_lifetime_v305.h": "76c9c30d160158b49efc01ff8187be183704094e739b6ab3c77e23ca55553cf1",
+    "unit-077/flow_lane_scope_v305.c": "4741a5ce2ed191d6a28a4b0734c7a24843988aee88764042f9af870d94ad3ed9",
+    "unit-077/flow_lane_scope_v305.h": "2fc177147cefe1358cffe07e7f7b7be56f22a3b51684a63d82f3507974ae6335",
+    "unit-078/flow_lane_decode_cache_v305.c": "544cc2ead290413eba3ff663af9c8f8d48e6b26a513855972ec726fa47954157",
+    "unit-078/flow_lane_decode_cache_v305.h": "95db4133a4314c1b797502c93d96703b6bb7f0b7285bc1bd767da3ea8e727890",
+    "unit-078/flow_lane_native_binding_geometry.h": "c101469e5062ab94d05b142b5abe804ac76c70ec8b9ed120f29929198995ef33",
+    "unit-078/flow_lane_native_binding_mesh.h": "2b49e0d72ae63792fbc9bb472085d4e41795e0638b37ab9901b67206ad1d2aaa",
+    "unit-078/flow_lane_native_point_contact_v305.h": "3d79e967268e9b1be401448808b1550be45001a5993d7ad79fe1570cd9d8ef2e",
+    "unit-078/flow_lane_owned_geometry_impl_v305.h": "a895296322fe1b4e5d8986609fa4498ffe697e256bbd12b9af91ee4620e9e290",
+    "unit-078/flow_lane_owned_point_impl_v305.h": "573977e76db933b7668d0cc2e0b9beef690e4822f43d52d4bf9411cf108b9588",
+    "unit-079/flow_course_publication_v305.h": "34529d16517ba136237474e80f589d0f243376dd1270b14fbe7a986352d09bd9",
+    "unit-079/flow_lane_decode_cache_v305.h": "95db4133a4314c1b797502c93d96703b6bb7f0b7285bc1bd767da3ea8e727890",
+    "unit-079/flow_lane_native_binding_geometry.h": "c101469e5062ab94d05b142b5abe804ac76c70ec8b9ed120f29929198995ef33",
+    "unit-079/flow_lane_native_binding_mesh.h": "2b49e0d72ae63792fbc9bb472085d4e41795e0638b37ab9901b67206ad1d2aaa",
+    "unit-079/flow_lane_native_point_contact_v305.h": "3d79e967268e9b1be401448808b1550be45001a5993d7ad79fe1570cd9d8ef2e",
+    "unit-079/flow_lane_obstacle_groups_impl_v305.h": "d37bbf4bd62fa47e16459e2797767ef47a3b4e37c354ef2e260fff12d7e18ddc",
+    "unit-079/flow_lane_obstacle_groups_v305.h": "65491c72ba63efbc87e862f20e7168cbb32c66fa0efb8c0c1c5794ad08ec7de0",
+    "unit-079/flow_lane_prepared_geometry_v305.c": "875520fb231a7d1b88a9a3b1f08cfb609fe94b0c6998ef637fe9fc3d35c94af8",
+    "unit-079/flow_lane_prepared_geometry_v305.h": "8f21acd039be8716b662b91241a3973d12d15fcf51d9d6b6e0b196c56d2617fc",
+    "unit-080/flow_course_publication_v305.c": "3cde6d054adb48f4b4ed03cd223a236ece33ce102b52bbb37377492eaa52af6b",
+    "unit-080/flow_course_publication_v305.h": "34529d16517ba136237474e80f589d0f243376dd1270b14fbe7a986352d09bd9",
+    "unit-080/flow_lane_decode_cache_v305.h": "95db4133a4314c1b797502c93d96703b6bb7f0b7285bc1bd767da3ea8e727890",
+    "unit-080/flow_lane_native_binding_geometry.h": "c101469e5062ab94d05b142b5abe804ac76c70ec8b9ed120f29929198995ef33",
+    "unit-080/flow_lane_native_binding_mesh.h": "2b49e0d72ae63792fbc9bb472085d4e41795e0638b37ab9901b67206ad1d2aaa",
+    "unit-080/flow_lane_native_geometry_identity_v305.h": "126024918391f26abdbe3eb3c243414e6a0afa22a7f2519fb85ba32961d38011",
+    "unit-080/flow_lane_native_point_contact_v305.h": "3d79e967268e9b1be401448808b1550be45001a5993d7ad79fe1570cd9d8ef2e",
+    "unit-080/flow_lane_obstacle_groups_v305.h": "65491c72ba63efbc87e862f20e7168cbb32c66fa0efb8c0c1c5794ad08ec7de0",
+    "unit-080/flow_lane_prepared_geometry_v305.h": "8f21acd039be8716b662b91241a3973d12d15fcf51d9d6b6e0b196c56d2617fc",
+    "unit-081/flow_course_publication_v305.h": "34529d16517ba136237474e80f589d0f243376dd1270b14fbe7a986352d09bd9",
+    "unit-081/flow_lane_base_bias_v305.h": "9cabf9668e2011a0c9bf0562465286e99669967ad75c666cda0ded99ebf1ed47",
+    "unit-081/flow_lane_decode_cache_v305.h": "95db4133a4314c1b797502c93d96703b6bb7f0b7285bc1bd767da3ea8e727890",
+    "unit-081/flow_lane_native_actuator_v305.h": "1e097a9102ab019e9951d7c745e3e9489e3a4ab876a3e5187659b297bf64ff6e",
+    "unit-081/flow_lane_native_binding.h": "9d2876e26579e0e470849578d77560bda4a56e068668e3924e1818eb65f7035d",
+    "unit-081/flow_lane_native_binding_contact.h": "0eae52b7f185d2b541a434aaad16c5d7ea7854aa02eab217d81bb31e94076b44",
+    "unit-081/flow_lane_native_binding_geometry.h": "c101469e5062ab94d05b142b5abe804ac76c70ec8b9ed120f29929198995ef33",
+    "unit-081/flow_lane_native_binding_mesh.h": "2b49e0d72ae63792fbc9bb472085d4e41795e0638b37ab9901b67206ad1d2aaa",
+    "unit-081/flow_lane_native_cost_v305.h": "6382b7cfe1f14e4f78abe856f68b6272fbba2a652f6a8b5eb97638f1cd4f61b6",
+    "unit-081/flow_lane_native_edge_certificate_v305.h": "90649675297e2ce006f72d43310858d396f5ca79e5b2a1100ab08df72154ef6d",
+    "unit-081/flow_lane_native_facet_route_v305.h": "6639fa2c35d4d48a40fa6d1da1f90f80104a7b25daeffe356052f9dfc1cde485",
+    "unit-081/flow_lane_native_flow_query_v305.h": "0b5820a4290d0d6dd887028f8e0e9652d116e4668e1e7ac2c137da54601bcc51",
+    "unit-081/flow_lane_native_geometry_identity_v305.h": "126024918391f26abdbe3eb3c243414e6a0afa22a7f2519fb85ba32961d38011",
+    "unit-081/flow_lane_native_lifetime_v305.h": "76c9c30d160158b49efc01ff8187be183704094e739b6ab3c77e23ca55553cf1",
+    "unit-081/flow_lane_native_point_contact_v305.h": "3d79e967268e9b1be401448808b1550be45001a5993d7ad79fe1570cd9d8ef2e",
+    "unit-081/flow_lane_native_route_obstacles_v305.h": "1560db1fbff5fafb131f067af3273c17563db1ea5d4f81b42a651160c13a3523",
+    "unit-081/flow_lane_obstacle_groups_v305.h": "65491c72ba63efbc87e862f20e7168cbb32c66fa0efb8c0c1c5794ad08ec7de0",
+    "unit-081/flow_lane_owned_query_v305.h": "2d498abff7438bdf022e707a6b9ad78c572cc141f1f25cf92cfdcbd25a17c9bc",
+    "unit-081/flow_lane_owner_contact_indices.h": "8be112ca850eeb5aaf2b2df5cf4ff50aa2876d0d0cb1ec7a70840df08fd441d0",
+    "unit-081/flow_lane_prepared_geometry_v305.h": "8f21acd039be8716b662b91241a3973d12d15fcf51d9d6b6e0b196c56d2617fc",
+    "unit-081/flow_lane_runtime_v305.c": "50594336b09cdf4b54981804d818c69c049878057d80af7f156c51a38bb92f97",
+    "unit-081/flow_lane_runtime_v305.h": "09c04034a8642d761c936ff52ba2b531ec4b2e3b6edf8107fe28f2404e435ec3",
+    "unit-081/flow_lane_sealed_query_v305.h": "945fb6d51e24b498623b8f4ba4d6662039eede511b3ef7e4ef9d8b181cdedfe0",
+    "unit-082/flow_lane_freestanding_v305.c": "6336c8d7fa6a4499cbd51d39aa57e01b6ce13dc971095cc60668bbcda6a4b7b8",
+    "unit-083/flow_course_publication_v305.S": "929eeb41806f87e45f48929143fbd2efe1682c8e7037515f700305be3a9c1479",
+    "unit-083/register_context.inc": "f84d8b8fee34f9dc1fe88c73e73f349d86d8e960a890249881c353fdc6166d0c",
+    "unit-084/golden_active_narrow_v305.S": "0f0bb6ca593a5c9f593a46b0046d1855b3f56924491a02fdd3422e7cc6d8246f",
+    "unit-084/register_context.inc": "f84d8b8fee34f9dc1fe88c73e73f349d86d8e960a890249881c353fdc6166d0c",
+    "unit-085/lightning_bagging_v305.c": "287b62421802ea765463cea046ef8257e153018778eb3f921661c7e27b40aa53",
+    "unit-086/lightning_bagging_v305.S": "f41d696cdd00706dfd46a7552994031c83f39137b533c3f1d3144c07eda9e463",
+    "unit-086/register_context.inc": "f84d8b8fee34f9dc1fe88c73e73f349d86d8e960a890249881c353fdc6166d0c",
+    "unit-087/director_ladder_native_v305.c": "d32936ca84b51f7b82ce82b6a26ca8d320008121a4ba5061d166759db263edcc",
+    "unit-087/director_ladder_native_v305.h": "30c4caabf7ef6f43553df0c0c0d731dc5d0c77e99ec2ecf745ea12ea881f87e9",
+    "unit-087/director_pressure_pace_v305.h": "231f5c036562524cacd6f5ecef9cb45d972bf85886b52eab562e5b13816ad9ee",
+    "unit-088/director_promotion_exchange_v305.c": "00469214ccdf18863eeb5a1fd34eff18da9e3b6d94873b1d4e862b5e7726c6db",
+    "unit-088/director_promotion_exchange_v305.h": "4a18e0850b84a4788133a6f0f3281976f58dd47ffc03c545dec287389ddf3e1a",
+    "unit-089/director_promotion_exchange_v305.h": "4a18e0850b84a4788133a6f0f3281976f58dd47ffc03c545dec287389ddf3e1a",
+    "unit-089/director_promotion_runtime_v305.c": "395909dec6f085a1ffaa1d317e1938c5a6e838bc00a949a8a7d331eea0e4a3e5",
+    "unit-089/director_promotion_runtime_v305.h": "d6ff38c7f263fd38459bd7f1bc65d3f6e889f4f956ce009d94f6948f8924ed27",
+    "unit-089/main_task_lease.h": "eae4cb518d9e16875391285cb920613c5c7eaff61005c4ae54691437d5d1d428",
+    "unit-089/manual_intent.h": "14e7db034ad3f3517b93239dad2da199b0c768de72f5803a55893d2a9087ad30",
+    "unit-089/native_admission.h": "4e0f41422a56949852e506ce84c2ba3ee57e6d0618da653adb5c5e0cae9d548c",
+    "unit-089/queue_thread.h": "a09b2e1a3ecdcb8aef7813fd1df5dc62a3ebc8642f58896581b723e7a7555ee5",
+    "unit-090/director_promotion_boundary_v305.c": "a2becafee9bd0cb5e0ba62002104b420080aadf563d9897c3187c42bed08161e",
+    "unit-090/main_task_lease.c": "24fa8903bc1c4f184ff9fc566c1ed4f432571a0fb60412fd0874e1c9473640d7",
+    "unit-090/main_task_lease.h": "eae4cb518d9e16875391285cb920613c5c7eaff61005c4ae54691437d5d1d428",
+    "unit-090/main_task_prerequisite.c": "1aaf86c623dd4966434d91429e03d19cb16b3b71168d4547a8714235d32cc650",
+    "unit-090/manual_intent.h": "14e7db034ad3f3517b93239dad2da199b0c768de72f5803a55893d2a9087ad30",
+    "unit-090/native_admission.h": "4e0f41422a56949852e506ce84c2ba3ee57e6d0618da653adb5c5e0cae9d548c",
+    "unit-090/queue_thread.c": "015170a8592d69c74baf028c163859b6d92322f5171e3eb25943c4617514768d",
+    "unit-090/queue_thread.h": "a09b2e1a3ecdcb8aef7813fd1df5dc62a3ebc8642f58896581b723e7a7555ee5",
+    "unit-090/queue_thread_layout.h": "174480fff0dcc30d417fd4b20b8b5a33c79532e755e082a5c1c38e8c64637d74",
+    "unit-091/director_promotion_runtime_v305.S": "312154abbd7f84bc67fcad6dfde5454e94ca77c6f4d7209052df4b84edd0cbdb",
+    "unit-091/register_context.inc": "f84d8b8fee34f9dc1fe88c73e73f349d86d8e960a890249881c353fdc6166d0c",
+    "unit-092/director_promotion_exchange_v305.h": "4a18e0850b84a4788133a6f0f3281976f58dd47ffc03c545dec287389ddf3e1a",
+    "unit-092/shared_slot_scope_v305.c": "6b2c0536cfcc67007ee6c196a6267f59aa98fcede3cdccc6473c8b4d678a3cce",
+    "unit-092/shared_slot_scope_v305.h": "955e0696b31588127dbcc27a77a5ce988bb9260d6bb02cb4fc61c5ca79c2686c",
+    "unit-093/director_promotion_exchange_v305.h": "4a18e0850b84a4788133a6f0f3281976f58dd47ffc03c545dec287389ddf3e1a",
+    "unit-093/manual_intent.h": "14e7db034ad3f3517b93239dad2da199b0c768de72f5803a55893d2a9087ad30",
+    "unit-093/register_context.inc": "f84d8b8fee34f9dc1fe88c73e73f349d86d8e960a890249881c353fdc6166d0c",
+    "unit-093/shared_slot_jobs_v305.S": "176d1f166ab95ee734bca176ca8666c7834269f9f24732dd3615aed359608d1e",
+    "unit-093/shared_slot_jobs_v305.h": "27e26c30cd175d12443991a2bafc4731ff8439618fc2ae4d40f271ef4b18b65d",
+    "unit-093/shared_slot_scope_v305.h": "955e0696b31588127dbcc27a77a5ce988bb9260d6bb02cb4fc61c5ca79c2686c",
+    "unit-094/director_pressure_native_v305.h": "7dd5c276ba567fcc787775f1976c0d843732b671b5d263bb434e48da7b3fb569",
+    "unit-094/director_pressure_pace_v305.h": "231f5c036562524cacd6f5ecef9cb45d972bf85886b52eab562e5b13816ad9ee",
+    "unit-094/director_promotion_exchange_v305.h": "4a18e0850b84a4788133a6f0f3281976f58dd47ffc03c545dec287389ddf3e1a",
+    "unit-094/manual_intent.h": "14e7db034ad3f3517b93239dad2da199b0c768de72f5803a55893d2a9087ad30",
+    "unit-094/native_admission.h": "4e0f41422a56949852e506ce84c2ba3ee57e6d0618da653adb5c5e0cae9d548c",
+    "unit-094/queue_thread.h": "a09b2e1a3ecdcb8aef7813fd1df5dc62a3ebc8642f58896581b723e7a7555ee5",
+    "unit-094/shared_slot_jobs_v305.h": "27e26c30cd175d12443991a2bafc4731ff8439618fc2ae4d40f271ef4b18b65d",
+    "unit-094/shared_slot_runtime_v305.c": "d00fbabf43e40fe6623f4faa44956635f8601a7553dc0e1080a0a26e28910b88",
+    "unit-094/shared_slot_runtime_v305.h": "ba134edb2233c31fbef92263ff99d87890fee996129dd50408cc01b77b145988",
+    "unit-094/shared_slot_scope_v305.h": "955e0696b31588127dbcc27a77a5ce988bb9260d6bb02cb4fc61c5ca79c2686c",
+    "unit-095/main_task_prerequisite.c": "1aaf86c623dd4966434d91429e03d19cb16b3b71168d4547a8714235d32cc650",
+    "unit-095/manual_intent.h": "14e7db034ad3f3517b93239dad2da199b0c768de72f5803a55893d2a9087ad30",
+    "unit-095/native_admission.h": "4e0f41422a56949852e506ce84c2ba3ee57e6d0618da653adb5c5e0cae9d548c",
+    "unit-095/queue_thread.c": "015170a8592d69c74baf028c163859b6d92322f5171e3eb25943c4617514768d",
+    "unit-095/queue_thread.h": "a09b2e1a3ecdcb8aef7813fd1df5dc62a3ebc8642f58896581b723e7a7555ee5",
+    "unit-095/queue_thread_layout.h": "174480fff0dcc30d417fd4b20b8b5a33c79532e755e082a5c1c38e8c64637d74",
+    "unit-095/shared_slot_boundary_v305.c": "e344bf678b274dc086518bb5d8b414a06ab612e00a30014f2eefc1cf7a6728db"
+  },
+  "independent_rebuild_verified": true,
+  "privacy_review_complete": true,
+  "release_candidate": true,
+  "version": "0.2.0-rc.1",
+  "hook_patch_sha256": "e902bd8ff8ff5d889cb3ee5ac0cfd29dafd407dd2736408fbf292ff6b2430eca",
+  "main_overlays_sha256": "6f6b70d009c0803cdfd1820b7cb4f5e07417d736cedb561ac757ab752789d943",
+  "merged_patch_bytes": 4912,
+  "companion_patch_bytes": 4644,
+  "compiled_companions": [
+    {
+      "source": "companions/all_racers_finish_v305.S",
+      "source_sha256": "7af6e24813979fed78582a9d959a64e0d6b5d2f20ba38770da59709c7c703faa",
+      "symbol": "lab_all_racers_finish_v305",
+      "address": 8887340,
+      "size": 356,
+      "symbols": [
+        [
+          "finish_native_context",
+          8339964
+        ],
+        [
+          "finish_native_config",
+          8897092
+        ]
+      ],
+      "replacement_sha256": "9e4d4c5a93a5e7940897a60c16d2c2ca7667afee74971cef3d106f50f5a0cd48"
+    }
   ]
 }

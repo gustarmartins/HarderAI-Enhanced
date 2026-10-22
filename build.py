@@ -10,6 +10,7 @@ import struct
 from elftools.elf.elffile import ELFFile
 import nso_builder
 from ips import encode_ips, parse_ips
+from aarch64_companion import compile_c
 
 ROOT = Path(__file__).resolve().parent
 sha = lambda data: hashlib.sha256(data).hexdigest()
@@ -57,23 +58,65 @@ def build(output, verify=False):
     elf, nso, metadata = nso_builder.build(
         sources=[ROOT/'src'/name for name in profile['source_order']],
         compiler_args=profile['compiler_args'],
+        source_compiler_args={str(ROOT/'src'/n):a for n,a in profile['source_compiler_args'].items()},
+        linker_args=profile['linker_args'],
         elf_transform=lambda raw: encode_returns(raw, profile))
     memory = {}
     for hook in profile['hook_plan']:
         source = hook['main_offset']
         target = profile['required_main_to_module_offset'] + metadata['symbols'][hook['symbol']]
-        encoded = struct.pack('<I', branch(source, target))
+        word = branch(source, target)
+        if int.from_bytes(bytes.fromhex(hook['branch_hex']), 'little') & 0xfc000000 == 0x94000000:
+            word |= 0x80000000
+        encoded = struct.pack('<I', word)
+        if encoded.hex() != hook['branch_hex']:
+            raise ValueError('Rebuilt native hook differs')
         for address, value in enumerate(encoded, source):
             if address in memory:
                 raise ValueError('Overlapping hooks')
             memory[address] = value
+    hook_ips = encode_ips(memory)
+    if verify and sha(hook_ips) != profile['hook_patch_sha256']:
+        raise ValueError('Rebuilt hook-only patch differs')
+    overlays_raw = (ROOT/'main_overlays.json').read_bytes()
+    if sha(overlays_raw) != profile['main_overlays_sha256']:
+        raise ValueError('Companion main-image patch source differs')
+    overlays = json.loads(overlays_raw)
+    if overlays['game_version'] != profile['game_version'] or overlays['main_build_id'] != profile['main_build_id']:
+        raise ValueError('Companion patch targets another game build')
+    for word in overlays['words']:
+        start = int(word['address'], 16)
+        encoded = bytes.fromhex(word['hex'])
+        if start < 0 or start % 4 or len(encoded) != 4:
+            raise ValueError('Companion patch must contain aligned complete words')
+        for address, value in enumerate(encoded, start):
+            if address in memory:
+                raise ValueError('Companion patch overlaps a compiled hook')
+            memory[address] = value
+    for companion in profile.get('compiled_companions', []):
+        source = ROOT/companion['source']
+        if sha(source.read_bytes()) != companion['source_sha256']:
+            raise ValueError('Authored companion source differs')
+        raw = compile_c(source, companion['symbol'], companion['address'],
+                        linker_symbols=companion['symbols'])
+        size = companion['size']
+        if len(raw) > size or len(raw) % 4 or size % 4:
+            raise ValueError('Compiled companion exceeds its native function')
+        raw += bytes.fromhex('1f2003d5')*((size-len(raw))//4)
+        if sha(raw) != companion['replacement_sha256']:
+            raise ValueError('Compiled companion bytes differ')
+        for at, value in enumerate(raw, companion['address']):
+            if at in memory: raise ValueError('Companion overlaps an existing patch')
+            memory[at] = value
+    if len(memory) != profile['merged_patch_bytes']:
+        raise ValueError('Merged patch extent differs')
     ips = encode_ips(memory)
     assert parse_ips(ips) == memory
     if verify and (sha(nso) != profile['nso_sha256'] or sha(ips) != profile['patch_sha256']):
         raise ValueError('Release hash differs; use the documented compiler versions')
     output = Path(output)
     output.mkdir(parents=True, exist_ok=True)
-    files = {'subsdk9': nso, profile['main_build_id']+'.ips': ips,
+    files = {'module.elf': elf, 'subsdk9': nso, profile['main_build_id']+'.ips': ips,
              profile['main_build_id']+'.pchtxt': patch_text(memory, profile['main_build_id'])}
     for name, data in files.items():
         (output/name).write_bytes(data)

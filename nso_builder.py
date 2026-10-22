@@ -63,21 +63,22 @@ def convert(elf_bytes):
     return bytes(header + content), manifest
 
 
-def build(sources=None, linker_args=(), compiler_args=(), elf_transform=None):
+def build(sources=None, linker_args=(), compiler_args=(), elf_transform=None, source_compiler_args=None):
     with tempfile.TemporaryDirectory(prefix='mk8-master-module-') as directory:
         temp = Path(directory)
         if sources is None:
             raise ValueError('Pass the source list from profile.json')
+        source_compiler_args = source_compiler_args or {}
         objects = []
         for index, source in enumerate(sources):
             output = temp/f'{index}.o'
             subprocess.run(['clang','--target=aarch64-none-elf','-O2','-ffreestanding',
                 '-fno-builtin','-fno-stack-protector','-fno-strict-aliasing',
                 '-fPIC','-fvisibility=hidden','-Wall','-Wextra','-Werror',
-                *compiler_args,'-c',str(source),'-o',str(output)],check=True)
+                *compiler_args,*source_compiler_args.get(str(source),()),'-I'+str(Path(source).parent),'-c',str(source),'-o',str(output)],check=True)
             objects.append(str(output))
         subprocess.run(['ld.lld','--shared','-Bsymbolic','--hash-style=sysv','--no-undefined',
-            '-init=lab_module_init','-T',str(ROOT/'module/link.ld'),*linker_args,*objects,
+            '-init=lab_module_init','-T',str(ROOT.parent/'link.ld'),*linker_args,*objects,
             '-o',str(temp/'observer.elf')],check=True)
         elf = (temp/'observer.elf').read_bytes()
         if elf_transform is not None:

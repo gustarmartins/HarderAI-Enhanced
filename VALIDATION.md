@@ -1,17 +1,26 @@
-# Release validation
+# Validation — v0.2.0-rc.1
 
-v0.1.0 freezes the build used during the author's positively received Eden/Linux play session. The live module matched the archived NSO; the resident AIRace image matched the installed release file.
+## Verified
 
-- The public C/assembly build reproduces the module, IPS32 and IPSwitch SHA-256 hashes byte-for-byte.
-- 182 focused native guest checks passed for this snapshot: loader behavior, caps/boosts, drift completion, snaking scope/gap rules, and scene/group lifetime handling.
-- The guest tests use the original game's instruction fragments and supplied object graphs. The original executable and captured game-memory fixtures are excluded from this public repository. These test counts are local evidence, not a claim that this repository ships those fixtures.
-- Public tests cover IPS encoding, source/file hashes and exact parameter reconstruction. They do not emulate an entire race.
-- General gameplay feel was accepted by the author. Snaking counters recorded zero starts across the reviewed race segments. Full route clearance, network synchronization and other platforms remain unqualified.
+- Standalone source reconstructs the installed Human module and merged executable patch byte-for-byte.
+- Parameter edit recipes reconstruct the included AIRace.bin and Performance.bin exactly.
+- The latest corner change passed 80 native execution cases across Human and spectator builds, 84 package/phone cases, 17 retained-reader cases and six merged-overlay cases.
+- A detailed v79 Human capture matched 35 custom snaking requests to physical blue mini-turbo commits on the same native tick across ten CPUs.
+- That capture observed two races reaching all twelve native finishes; one was recorded from its start, and one was joined mid-race.
+- Further Human telemetry covers ordinary driving, physical turbo releases, director state and course transitions on Eden/Linux.
 
-## Known issue preserved in v0.1.0
+## Known limitations and next work
 
-The snaking controller restarts its waiting timer during ordinary idle native maneuvers. Four later native regression cases reproduce this. The fix is under a separate experimental build and is deliberately excluded from this exact snapshot.
+- Snaking remains course-dependent. Some attempts cancel during clearance, input or state transitions.
+- Consistent safe exits and high-speed recovery need broader course coverage.
+- Traffic-aware approaches and overtaking on Shroom Ridge are planned for the next release.
+- Sustained purple charging still trails strong human play on long corners.
+- Item defense and shortcut decisions need more outcome-level coverage across item and course states.
+- Full GP/eight-race VS completion and a deliberately stuck-racer 30-second fallback still need a dedicated pass on this exact release candidate.
+- Broader route optimization and additional moving-surface lanes remain under development.
 
-## Future changes
+## Evidence interpretation
 
-Development fixes and additional enhanced-CPU features will use new commits and release tags. Existing release assets and hashes should remain immutable.
+Native tests exercise supplied geometry and states. Gameplay telemetry records observed behavior on the installed module. Turbo matches establish a committed boost; safe trajectories and realized speed gain require further trajectory evidence.
+
+Platform verification for this candidate covers Eden on Linux. The release targets the MK8DX 3.0.5 executable identified in [TECHNICAL.md](TECHNICAL.md).

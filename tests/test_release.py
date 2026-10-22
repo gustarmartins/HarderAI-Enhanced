@@ -29,9 +29,10 @@ class ReleaseTests(unittest.TestCase):
         p = json.loads((ROOT/'profile.json').read_text())
         binary = (ROOT/'release'/(p['main_build_id']+'.ips')).read_bytes()
         memory = parse_ips(binary)
-        self.assertEqual(len(memory), 13*4)
+        self.assertEqual(len(memory), p['merged_patch_bytes'])
         self.assertEqual(encode_ips(memory), binary)
-        path = ROOT/'release/HarderAI Enhanced v0.1.0/exefs'/(p['main_build_id']+'.pchtxt')
+        m = json.loads((ROOT/'release-manifest.json').read_text())
+        path = ROOT/'release'/m['mod_folder']/'exefs'/(p['main_build_id']+'.pchtxt')
         self.assertEqual(patch_text(memory, p['main_build_id']), path.read_bytes())
         for hook in p['hook_plan']:
             actual = bytes(memory[hook['main_offset']+i] for i in range(4))
@@ -41,7 +42,8 @@ class ReleaseTests(unittest.TestCase):
         recipes = json.loads((ROOT/'parameter_edits.json').read_text())
         for name, recipe in recipes.items():
             with self.subTest(file=name):
-                released = (ROOT/'release/HarderAI Enhanced v0.1.0/romfs/Common/Mush'/name).read_bytes()
+                m = json.loads((ROOT/'release-manifest.json').read_text())
+                released = (ROOT/'release'/m['mod_folder']/'romfs/Common/Mush'/name).read_bytes()
                 original = bytearray(released)
                 for edit in recipe['edits']:
                     start = edit['offset'];after = bytes.fromhex(edit['after']);before = bytes.fromhex(edit['before'])

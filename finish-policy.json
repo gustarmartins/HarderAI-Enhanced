@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "kind": "offline-single-player-all-racers-finish",
+  "game_version": "3.0.5",
+  "start": 8887340,
+  "end": 8887696,
+  "source_sha256": "7af6e24813979fed78582a9d959a64e0d6b5d2f20ba38770da59709c7c703faa",
+  "native_function_sha256": "13c0a8b6c8b066161e300b76ec9b69c4e4eeb03a587b72d8380f8536cd319c16",
+  "replacement_sha256": "9e4d4c5a93a5e7940897a60c16d2c2ca7667afee74971cef3d106f50f5a0cd48",
+  "grace_ms": 30000,
+  "native_maximum_race_ms": 599999,
+  "changes_roster": false,
+  "persistent_storage_bytes": 0,
+  "gameplay_verified": false,
+  "live_evidence": "Human VS captures include all twelve native finishes and subsequent course starts; the dedicated full-series and stuck-racer timeout trials remain open.",
+  "independent_rebuild_verified": true,
+  "published": false
+}

@@ -1,0 +1,14 @@
+- Earlier CPU corner entries and longer holds toward orange/purple mini-turbos.
+- Short-straight snaking with steering correction and improved hop/landing continuity.
+- Better drift continuation across path joins, slopes and banked road surfaces.
+- Faster blue/orange/purple charging and stronger inward-steering charge response.
+- More consistent completion of nearly charged drifts.
+- Improved CPU boost caps, drift speed and scaling for Star power.
+- Rapid Golden Mushroom use through eligible shortcut approaches.
+- Earlier Golden Mushroom and Star use near the finish.
+- Shorter ordinary Mushroom waits and shortcut use during active Stars.
+- First-place defensive item holding, Super Horn reactions and Star defense.
+- Path checks for safer drafting targets.
+- 100 rocket-start, drift and trick probabilities across all difficulties and positions.
+- Updated AIRace balance and automatic race-director policies.
+- GP/VS finish handling that waits for the grid with a 30-second grace period.

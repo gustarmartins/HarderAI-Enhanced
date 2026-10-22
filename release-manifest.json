@@ -1,18 +1,19 @@
 {
   "name": "HarderAI Enhanced",
-  "version": "0.1.0",
+  "version": "0.2.0-rc.1",
+  "mod_folder": "HarderAI Enhanced v0.2.0-rc.1",
   "game_version": "3.0.5",
   "title_id": "0100152000022000",
   "main_build_id": "FE941ED5BA14BE5D505698DA1BBF4FE7",
-  "module_sha256": "7ccd2274c3ef010c0f1fcf24990c04f41ddeb72f48cf59dc1829296f5f079b6e",
-  "ips_sha256": "297bd5144361a3f6641d31fc599fcdcb87d2590efc627c3dd537ec155263dc33",
+  "module_sha256": "ec5d860af09e63dfa0e4fa258e91ec770a0cc1d883e9e7d75474d8bf9a987682",
+  "ips_sha256": "b4c2a9a91dedad665af709f2bd899ba7a6f75e8c6a77752453c2959ac4294a5f",
   "tested_platform": "Eden Linux",
   "source_license": "MIT",
   "files": {
-    "FE941ED5BA14BE5D505698DA1BBF4FE7.ips": "297bd5144361a3f6641d31fc599fcdcb87d2590efc627c3dd537ec155263dc33",
-    "HarderAI Enhanced v0.1.0/exefs/FE941ED5BA14BE5D505698DA1BBF4FE7.pchtxt": "04df59030fe5d8fc42413868a45d873935f08f1da80de8766d882b439a4e3dd1",
-    "HarderAI Enhanced v0.1.0/exefs/subsdk9": "7ccd2274c3ef010c0f1fcf24990c04f41ddeb72f48cf59dc1829296f5f079b6e",
-    "HarderAI Enhanced v0.1.0/romfs/Common/Mush/AIRace.bin": "2909997ffc82c26676787b260a64408857faa0e0feada9f806a24644f5033379",
-    "HarderAI Enhanced v0.1.0/romfs/Common/Mush/Performance.bin": "4743a49e74bbd99474bd32f493b421d6ece88cd3c0ca100f899bc96a15bfe1d0"
+    "FE941ED5BA14BE5D505698DA1BBF4FE7.ips": "b4c2a9a91dedad665af709f2bd899ba7a6f75e8c6a77752453c2959ac4294a5f",
+    "HarderAI Enhanced v0.2.0-rc.1/exefs/FE941ED5BA14BE5D505698DA1BBF4FE7.pchtxt": "8af726947000e4ef5bcc8fb857c82b8a072e55da2f7b0e2a0ca162f4b223b47d",
+    "HarderAI Enhanced v0.2.0-rc.1/exefs/subsdk9": "ec5d860af09e63dfa0e4fa258e91ec770a0cc1d883e9e7d75474d8bf9a987682",
+    "HarderAI Enhanced v0.2.0-rc.1/romfs/Common/Mush/AIRace.bin": "4ed89196e72bc938e45b1113069ecae9685d2afdc5d49f933b156ab86a7810fc",
+    "HarderAI Enhanced v0.2.0-rc.1/romfs/Common/Mush/Performance.bin": "9bf6f051c72878599de2afb65c0d17fb51cd762e1319aee3b7c8da0898c0bb2c"
   }
 }
